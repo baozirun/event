@@ -1,0 +1,63 @@
+#============================================
+#
+# server config
+#
+#============================================
+server:
+   port: 8080
+   servlet:
+      session:
+         timeout: 36000
+#      context-path: /event
+   tomcat:
+      uri-encoding: UTF-8
+
+spring:
+   application:
+      name: event
+   profiles:
+      active: pro
+
+   #============================================
+   #
+   # nacos config
+   #
+   #============================================
+   cloud:
+      nacos:
+         config:
+            server-addr: 130.120.3.253:8848
+            file-extension: yml
+         discovery:
+            server-addr: ${spring.cloud.nacos.config.server-addr}
+
+            
+            
+#============================================
+#
+# Mybatis Config
+#
+#============================================
+mybatis:
+   mapperLocations: classpath*:mapping/**/*.xml
+   typeAliasesPackage: com.aifa.mins.core.security,com.aifa.mins.event.model
+   dialect: mysql
+
+
+
+
+#============================================
+#
+#SECURITY config
+#
+#============================================
+security:
+   enabled: true
+   filter:
+      includes: /**
+      executions: /swagger-ui.html/**,/webjars/**,/swagger-resources/**,/v2/api-docs,/doc.html/**,/druid/**
+
+
+
+
+            

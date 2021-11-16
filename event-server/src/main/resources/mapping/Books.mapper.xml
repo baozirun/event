@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"     
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.aifa.mins.event.model.Books">
+
+	<!-- =====================Field字段配置===================== -->
+	<!-- BOOKS 字段 -->
+	<sql id="BooksSQL">
+		SID ,
+		NAME ,
+		AUTHOR ,
+		PRICE ,
+		PUBLISH_DATE ,
+		CREATED ,
+		CREATED_BY ,
+		LAST_UPDATED ,
+		LAST_UPDATED_BY 
+	</sql>
+	
+	<!-- 新增BOOKS 信息字段 -->
+  	<sql id="BooksInsertSQL">
+	    (
+			SID ,
+			NAME ,
+			AUTHOR ,
+			PRICE ,
+			PUBLISH_DATE ,
+			CREATED ,
+			CREATED_BY ,
+			LAST_UPDATED ,
+			LAST_UPDATED_BY 
+	    )
+  	</sql>
+  
+    <!-- 新增BOOKS 传入参数值 -->
+    <sql id="BooksParamsSQL">
+	     (
+			#{sid,jdbcType=BIGINT} ,
+			#{name,jdbcType=VARCHAR} ,
+			#{author,jdbcType=VARCHAR} ,
+			#{price,jdbcType=FLOAT} ,
+			#{publishDate,jdbcType=TIMESTAMP} ,
+			#{created,jdbcType=TIMESTAMP} ,
+			#{createdBy,jdbcType=BIGINT} ,
+			#{lastUpdated,jdbcType=TIMESTAMP} ,
+			#{lastUpdatedBy,jdbcType=BIGINT} 
+	     )
+    </sql>
+  
+	<!-- 修改BOOKS属性字段 -->
+	<sql id="BooksUpdateSQL">
+			SID = #{sid,jdbcType=BIGINT} ,
+			NAME = #{name,jdbcType=VARCHAR} ,
+			AUTHOR = #{author,jdbcType=VARCHAR} ,
+			PRICE = #{price,jdbcType=FLOAT} ,
+			PUBLISH_DATE = #{publishDate,jdbcType=TIMESTAMP} ,
+			CREATED = #{created,jdbcType=TIMESTAMP} ,
+			CREATED_BY = #{createdBy,jdbcType=BIGINT} ,
+			LAST_UPDATED = #{lastUpdated,jdbcType=TIMESTAMP} ,
+			LAST_UPDATED_BY = #{lastUpdatedBy,jdbcType=BIGINT} 
+	</sql>
+	
+	<!-- BOOKS 查询(包括条件按查询) -->
+	<sql id="BooksWhereSQL">
+	 		<if test="body.sid != null">
+	 			and SID = #{body.sid}
+	 		</if>
+	 		<if test="body.name != null and body.name != ''">
+	 			and NAME = #{body.name}
+	 		</if>
+	 		<if test="body.author != null and body.author != ''">
+	 			and AUTHOR = #{body.author}
+	 		</if>
+	 		<if test="body.price != null">
+	 			and PRICE = #{body.price}
+	 		</if>
+	 		<if test="body.publishDate != null">
+	 			and PUBLISH_DATE = #{body.publishDate}
+	 		</if>
+	</sql>
+
+	<!-- BOOKS 表关联项目信息表结果集属性声明 -->
+	<resultMap type="Books" id="BooksResultMap">
+		<id column="SID" property="sid" />
+			<result property="name" column="NAME"/>
+			<result property="author" column="AUTHOR"/>
+			<result property="price" column="PRICE"/>
+			<result property="publishDate" column="PUBLISH_DATE"/>
+			<result property="created" column="CREATED"/>
+			<result property="createdBy" column="CREATED_BY"/>
+			<result property="lastUpdated" column="LAST_UPDATED"/>
+			<result property="lastUpdatedBy" column="LAST_UPDATED_BY"/>
+	</resultMap>
+
+	<!-- ======================DML语句配置====================== -->
+	<!-- BOOKS 信息查询语句 -->
+	<select id="findBooks" resultMap="BooksResultMap">
+		SELECT 
+			<include refid="BooksSQL" />
+		FROM  BOOKS 
+		<where>
+			<include refid="BooksWhereSQL" />
+		</where>
+		<!-- 通用查询排序 -->
+	</select>
+	
+	<!-- BOOKS 信息查询语句 -->
+	<select id="findByIdBooks" resultMap="BooksResultMap">
+		SELECT 
+			<include refid="BooksSQL" />
+		FROM  BOOKS WHERE SID=#{value}
+	</select>
+	
+	<!-- BOOKS 数量查询SQL -->
+	<select id="countBooks" resultType="Integer">
+		SELECT count(*) total FROM  BOOKS
+		<where>
+			<include refid="BooksWhereSQL" />
+		</where>
+	</select>
+  
+  	<!-- 新增BOOKS 信息 -->
+	<insert id="addBooks" parameterType="Books">
+		INSERT INTO BOOKS <include refid="BooksInsertSQL"/>
+		VALUES <include refid="BooksParamsSQL"/>
+	</insert>
+	
+	<!-- 修改BOOKS 信息 -->
+	<update id="updateBooks" parameterType="Books">
+		UPDATE BOOKS
+		SET    <include refid="BooksUpdateSQL" />
+		WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除BOOKS 信息 -->
+	<update id="deleteBooks" parameterType="Books">
+		DELETE FROM BOOKS WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除BOOKS 信息 -->
+	<update id="deleteByIdBooks" parameterType="Long">
+		DELETE FROM BOOKS WHERE  SID IN
+		<foreach collection="array" item="item" separator="," open="(" close=")">
+		#{item}
+		</foreach>
+	</update>
+	
+	<!-- ======================DML方言配置====================== -->
+	<!-- xxx 信息查询语句,后缀必须(mysql|oracle...) -->
+</mapper>

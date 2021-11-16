@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.aifa</groupId>
+		<artifactId>aifa-parent</artifactId>
+		<version>2.0.0</version>
+	</parent>
+
+	<groupId>com.aifa.mins</groupId>
+	<artifactId>event</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<!-- ====================================== -->
+	<!-- event:modules -->
+	<modules>
+		<module>event-api</module>
+		<module>event-model</module>
+		<module>event-server</module>
+	  <module>event-vue</module>
+  </modules>
+	
+	<!-- ====================================== -->
+	<!-- event: versions-->
+	<properties>
+		<mins.version>2.5.2-SNAPSHOT</mins.version>
+		<mins-util.version>2.5.0-SNAPSHOT</mins-util.version>
+		<mins-ibls.version>1.0.0-SNAPSHOT</mins-ibls.version>
+		<jakarta.version>2.0.1</jakarta.version>
+		<mysql.version>8.0.21</mysql.version>
+		<druid.version>1.1.10</druid.version>
+		<lombok.version>1.18.10</lombok.version>
+	</properties>
+	
+	<repositories>
+		<repository>
+			<id>gzzn</id>
+			<url>http://130.120.2.205:8088/repository/maven-public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+    </repositories>
+
+</project>

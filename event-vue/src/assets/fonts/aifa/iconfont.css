@@ -1,0 +1,472 @@
+@font-face {font-family: "aifafont";
+  src: url('iconfont.eot?t=1568109599601'); /* IE9 */
+  src: url('iconfont.eot?t=1568109599601#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1568109599601') format('woff'),
+  url('iconfont.ttf?t=1568109599601') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1568109599601#aifafont') format('svg'); /* iOS 4.1- */
+}
+
+[class*=" aifafont-"], [class^=aifafont-] {
+  font-family: "aifafont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.aifafont-layer:before {
+  content: "\e600";
+}
+
+.aifafont-shuju:before {
+  content: "\e646";
+}
+
+.aifafont-delete:before {
+  content: "\e792";
+}
+
+.aifafont-loudou:before {
+  content: "\e617";
+}
+
+.aifafont-vertical-entralization:before {
+  content: "\e654";
+}
+
+.aifafont-align-top:before {
+  content: "\e657";
+}
+
+.aifafont-horizontally:before {
+  content: "\e658";
+}
+
+.aifafont-align-Bottom:before {
+  content: "\e65a";
+}
+
+.aifafont-right-alignment:before {
+  content: "\e65b";
+}
+
+.aifafont-left-alignment:before {
+  content: "\e65c";
+}
+
+.aifafont-message:before {
+  content: "\e7a8";
+}
+
+.aifafont-newly-added:before {
+  content: "\e7ab";
+}
+
+.aifafont-account:before {
+  content: "\e63c";
+}
+
+.aifafont-set1:before {
+  content: "\e637";
+}
+
+.aifafont-share1:before {
+  content: "\e668";
+}
+
+.aifafont-script:before {
+  content: "\e623";
+}
+
+.aifafont-add-to:before {
+  content: "\ea51";
+}
+
+.aifafont-sql-lookup:before {
+  content: "\e61c";
+}
+
+.aifafont-dashboard:before {
+  content: "\e66c";
+}
+
+.aifafont-quit:before {
+  content: "\e60c";
+}
+
+.aifafont-tubiao:before {
+  content: "\e698";
+}
+
+.aifafont-preview:before {
+  content: "\e6a9";
+}
+
+.aifafont-workbench:before {
+  content: "\e665";
+}
+
+.aifafont-kline:before {
+  content: "\e666";
+}
+
+.aifafont-merge1:before {
+  content: "\e6a1";
+}
+
+.aifafont-return:before {
+  content: "\e8a4";
+}
+
+.aifafont-edit:before {
+  content: "\e8cf";
+}
+
+.aifafont-cancel-full-screen:before {
+  content: "\e758";
+}
+
+.aifafont-product1:before {
+  content: "\e61e";
+}
+
+.aifafont-scatter:before {
+  content: "\e703";
+}
+
+.aifafont-bar-graph:before {
+  content: "\e671";
+}
+
+.aifafont-my-chart:before {
+  content: "\e6bc";
+}
+
+.aifafont-product2:before {
+  content: "\e64a";
+}
+
+.aifafont-new:before {
+  content: "\e696";
+}
+
+.aifafont-liebiao:before {
+  content: "\e86c";
+}
+
+.aifafont-set:before {
+  content: "\e64c";
+}
+
+.aifafont-my-equipment:before {
+  content: "\e626";
+}
+
+.aifafont-preview1:before {
+  content: "\e638";
+}
+
+.aifafont-Share:before {
+  content: "\e90e";
+}
+
+.aifafont-sum:before {
+  content: "\e601";
+}
+
+.aifafont-min:before {
+  content: "\e602";
+}
+
+.aifafont-cnt:before {
+  content: "\e603";
+}
+
+.aifafont-max:before {
+  content: "\e604";
+}
+
+.aifafont-gis:before {
+  content: "\e606";
+}
+
+.aifafont-video:before {
+  content: "\e607";
+}
+
+.aifafont-daiban:before {
+  content: "\e605";
+}
+
+.aifafont-help1:before {
+  content: "\e608";
+}
+
+.aifafont-text:before {
+  content: "\e609";
+}
+
+.aifafont-chart:before {
+  content: "\e60a";
+}
+
+.aifafont-image:before {
+  content: "\e60b";
+}
+
+.aifafont-large-screen:before {
+  content: "\e60d";
+}
+
+.aifafont-rightjoin:before {
+  content: "\e60e";
+}
+
+.aifafont-accumulative:before {
+  content: "\e60f";
+}
+
+.aifafont-avg:before {
+  content: "\e610";
+}
+
+.aifafont-select:before {
+  content: "\e611";
+}
+
+.aifafont-connect:before {
+  content: "\e612";
+}
+
+.aifafont-region:before {
+  content: "\e613";
+}
+
+.aifafont-innerjoin:before {
+  content: "\e615";
+}
+
+.aifafont-leftjoin:before {
+  content: "\e616";
+}
+
+.aifafont-fx:before {
+  content: "\e618";
+}
+
+.aifafont-add:before {
+  content: "\e61a";
+}
+
+.aifafont-hebing:before {
+  content: "\e619";
+}
+
+.aifafont-scene:before {
+  content: "\e6a6";
+}
+
+.aifafont-unmerge:before {
+  content: "\e61b";
+}
+
+.aifafont-addrow:before {
+  content: "\e61f";
+}
+
+.aifafont-addcol:before {
+  content: "\e620";
+}
+
+.aifafont-halign:before {
+  content: "\e621";
+}
+
+.aifafont-valign:before {
+  content: "\e622";
+}
+
+.aifafont-my-theme:before {
+  content: "\e627";
+}
+
+.aifafont-my-presentation:before {
+  content: "\e6b2";
+}
+
+.aifafont-return1:before {
+  content: "\e701";
+}
+
+.aifafont-daochuword:before {
+  content: "\e614";
+}
+
+.aifafont-chanpin3:before {
+  content: "\e6fe";
+}
+
+.aifafont-_daochupdf:before {
+  content: "\e6b1";
+}
+
+.aifafont-presentation:before {
+  content: "\e647";
+}
+
+.aifafont-source-material:before {
+  content: "\e881";
+}
+
+.aifafont-sqlserver:before {
+  content: "\e649";
+}
+
+.aifafont-assembly:before {
+  content: "\e61d";
+}
+
+.aifafont-copy:before {
+  content: "\e76e";
+}
+
+.aifafont-card:before {
+  content: "\e624";
+}
+
+.aifafont-animation:before {
+  content: "\e629";
+}
+
+.aifafont-my-scene:before {
+  content: "\e64f";
+}
+
+.aifafont-data-configuration:before {
+  content: "\e625";
+}
+
+.aifafont-help:before {
+  content: "\e62d";
+}
+
+.aifafont-parameter:before {
+  content: "\e62c";
+}
+
+.aifafont-full-screen:before {
+  content: "\e631";
+}
+
+.aifafont-up:before {
+  content: "\e632";
+}
+
+.aifafont-screen2:before {
+  content: "\e633";
+}
+
+.aifafont-bottom-setting:before {
+  content: "\e634";
+}
+
+.aifafont-yulan:before {
+  content: "\e635";
+}
+
+.aifafont-screen1:before {
+  content: "\e636";
+}
+
+.aifafont-down:before {
+  content: "\e639";
+}
+
+.aifafont-roof-placement:before {
+  content: "\e63a";
+}
+
+.aifafont-vertical-distribution:before {
+  content: "\e63b";
+}
+
+.aifafont-send-backward:before {
+  content: "\e63d";
+}
+
+.aifafont-horizontal-distribution:before {
+  content: "\e640";
+}
+
+.aifafont-bring-forward:before {
+  content: "\e641";
+}
+
+.aifafont-bottom-Layer:before {
+  content: "\e642";
+}
+
+.aifafont-bring-to-front:before {
+  content: "\e643";
+}
+
+.aifafont-equal-height:before {
+  content: "\e644";
+}
+
+.aifafont-equal-width:before {
+  content: "\e645";
+}
+
+.aifafont-merge:before {
+  content: "\e63e";
+}
+
+.aifafont-cancel-merger:before {
+  content: "\e63f";
+}
+
+.aifafont-theme:before {
+  content: "\e648";
+}
+
+.aifafont-my-assembly:before {
+  content: "\e7a2";
+}
+
+.aifafont-assembly1:before {
+  content: "\e62a";
+}
+
+.aifafont-preservation:before {
+  content: "\e6ba";
+}
+
+.aifafont-large-screen1:before {
+  content: "\e67f";
+}
+
+.aifafont-list-copy:before {
+  content: "\ea52";
+}
+
+.aifafont-to-examine:before {
+  content: "\e628";
+}
+
+.aifafont-property-configuration:before {
+  content: "\e64b";
+}
+
+.aifafont-drilling:before {
+  content: "\e64d";
+}
+
+.aifafont-release1:before {
+  content: "\e64e";
+}
+
+.aifafont-advanced-property-configuration:before {
+  content: "\e651";
+}
+

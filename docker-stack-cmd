@@ -1,0 +1,7 @@
+start or update:  docker stack deploy -c docker-stack.yml mbp
+start or update:  docker stack deploy -c docker-stack.yml mbp --resolve-image never
+
+service list:     docker service ls
+service upgrade:  docker service update --image uid-server:v1 uid-server --force
+
+batch delete images:	docker rmi `docker images | grep uid-server | awk '{print $3}'`

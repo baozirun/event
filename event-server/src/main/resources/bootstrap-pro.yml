@@ -1,0 +1,88 @@
+#============================================
+#
+# Spring config
+#
+#============================================
+spring:
+      
+   #============================================
+   #
+   # Data Source config
+   #
+   #============================================
+   datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://130.120.3.73:3307/event?serverTimezone=Asia/Shanghai&autoReconnect=true&useUnicode=true&characterEncoding=utf8
+      username: event
+      password: event123@Admin
+
+
+   #============================================
+   #
+   # Data Pool Druid Config
+   #
+   #============================================
+      druid:
+         initial-size: 2
+         max-active: 20
+         min-idle: 2
+         max-wait: 60000
+         pool-prepared-statements: true
+         validation-query: select 'x'
+         test-on-borrow: false
+         test-on-return: false
+         test-while-idle: true
+         
+         web-stat-filter:
+            enabled: true
+            url-pattern: /druid
+         stat-view-servlet:
+            login-username: mbp
+            login-password: mbp@gzzn
+
+
+   #============================================
+   #
+   # Spring Multipart Config
+   #
+   #============================================
+   servlet:
+      multipart:
+         max-file-size: 100MB
+         max-request-size: 1024MB
+
+   #============================================
+   #
+   # ZipKin Config
+   #
+   #============================================         
+   zipkin:
+      enabled: false
+      base-url: http://130.120.3.253:9411
+
+
+      
+#============================================
+#
+# Logging Config
+#
+#============================================      
+logging:
+   level:
+      ROOT: INFO
+
+
+
+#============================================
+#
+# Mbp config (Middle Business Platform Config)
+#
+#============================================
+mbp:
+   server:
+      ip: 130.120.3.253
+      uid: /uid-server
+      ibls: /ibls-server
+
+
+

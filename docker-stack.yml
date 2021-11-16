@@ -1,0 +1,34 @@
+version: '3.3'
+services:
+   mbp-gateway:
+    image: "reg.int.it2000.com.cn/com.aifa.mins/mbp-gateway/1.0.1-snapshot:prod-56"
+    working_dir: /usr/local
+    networks:
+     - proj
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        
+        
+  data-source:
+   image: "reg.int.it2000.com.cn/com.aifa.mins/data-source/1.5.0-snapshot:latest"
+   working_dir: /usr/local
+   environment:
+    JAVA_OPTS: "-XX:PermSize=64m -XX:MaxPermSize=128m -Xms256m -Xmx256m"
+   networks:
+    - proj
+   deploy:
+    replicas: 1
+    restart_policy:
+     condition: on-failure
+
+
+networks:
+  proj:
+    ipam:
+      config:
+        - subnet: 132.19.0.0/16
+
+
+

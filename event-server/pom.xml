@@ -1,0 +1,131 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.aifa.mins</groupId>
+		<artifactId>event</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>event-server</artifactId>
+	<!-- ====================================== -->
+	<!-- event-server:配置基础运行 -->
+	<build>
+		<plugins>
+			<!-- spring-boot-maven-plugin:应用打包插件 -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- ====================================== -->
+	<!-- event-server:配置基础依赖 -->
+	<dependencies>
+		<!-- mins-core:配置依赖信息 -->
+		<dependency>
+			<groupId>com.aifa.mins</groupId>
+			<artifactId>mins-core</artifactId>
+			<version>${mins.version}</version>
+		</dependency>
+		
+		<!-- mins-nacos-index:配置依赖信息 -->
+		<dependency>
+			<groupId>com.aifa.mins</groupId>
+			<artifactId>mins-nacos-index</artifactId>
+			<version>${mins.version}</version>
+			<type>pom</type>
+		</dependency>
+		
+		<!-- mins-zipkin-index:配置依赖信息 -->
+		<dependency>
+			<groupId>com.aifa.mins</groupId>
+			<artifactId>mins-zipkin-index</artifactId>
+			<version>${mins.version}</version>
+			<type>pom</type>
+		</dependency>		
+		
+		<!-- mins-mybatis:配置依赖信息 -->
+		<dependency>
+			<groupId>com.aifa.mins</groupId>
+			<artifactId>mins-mybatis</artifactId>
+			<version>${mins.version}</version>
+		</dependency>
+		
+		<!-- mins-utils:配置依赖信息 -->
+		<dependency>
+			<groupId>com.aifa.mins</groupId>
+			<artifactId>mins-util</artifactId>
+			<version>${mins-util.version}</version>
+		</dependency>
+		
+		<!-- ibls-core:配置依赖信息 -->
+		<dependency>
+			<groupId>com.aifa.mins</groupId>
+			<artifactId>ibls-core</artifactId>
+			<version>${mins-ibls.version}</version>
+		</dependency>
+
+		<!-- mins-token:配置依赖信息 -->
+		<dependency>
+			<groupId>com.aifa.mins</groupId>
+			<artifactId>mins-token</artifactId>
+			<version>${mins.version}</version>
+		</dependency>
+
+		<!-- project:配置依赖信息 -->
+		<dependency>
+			<groupId>com.aifa.mins</groupId>
+			<artifactId>event-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- mysql-connector-java:配置依赖信息 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+		
+		<!-- com.dm.jdbc:配置依赖信息 -->
+		<dependency>
+			<groupId>com.dm</groupId>
+			<artifactId>dm7-jdbc</artifactId>
+			<version>1.6</version>
+		</dependency>
+		
+		<!-- druid:配置依赖信息 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>${druid.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-autoconfigure</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<!-- mins-junit:配置依赖信息 -->
+		<dependency>
+			<groupId>com.aifa.mins</groupId>
+			<artifactId>mins-junit</artifactId>
+			<version>${mins.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- mins-lombok:配置依赖信息 -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+	</dependencies>
+
+
+</project>
