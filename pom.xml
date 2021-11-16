@@ -18,7 +18,7 @@
 		<module>event-api</module>
 		<module>event-model</module>
 		<module>event-server</module>
-	  <module>event-vue</module>
+	  <!--<module>event-vue</module>-->
   </modules>
 	
 	<!-- ====================================== -->

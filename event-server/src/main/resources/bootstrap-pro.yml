@@ -11,10 +11,10 @@ spring:
    #
    #============================================
    datasource:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://130.120.3.73:3307/event?serverTimezone=Asia/Shanghai&autoReconnect=true&useUnicode=true&characterEncoding=utf8
-      username: event
-      password: event123@Admin
+      driver-class-name: dm.jdbc.driver.DmDriver
+      url: jdbc:dm://130.120.3.230:5236/AJJ_BASE?serverTimezone=Asia/Shanghai&autoReconnect=true&useUnicode=true&characterEncoding=utf8
+      username: AJJ_BASE
+      password: 123456789
 
 
    #============================================

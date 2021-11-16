@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"     
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.aifa.mins.event.model.BaseSjjbjbsj">
+
+	<!-- =====================Field字段配置===================== -->
+	<!-- BASE_SJJBJBSJ 字段 -->
+	<sql id="BaseSjjbjbsjSQL">
+		jbbh ,
+		xxbt ,
+		sjbh ,
+		bssj ,
+		bsfsdm ,
+		bsr ,
+		bsdw ,
+		bsdwlxdh ,
+		sjlxdm ,
+		sjdjdm ,
+		sfsj ,
+		sfdd ,
+		sfxzhq ,
+		sjfwxzqh ,
+		sjms ,
+		zbxtdm ,
+		jd ,
+		wd ,
+		gcjzdm ,
+		gc ,
+		qfr ,
+		swrs ,
+		yxbj ,
+		yxcd ,
+		yxfw ,
+		zjjjss ,
+		ssqk ,
+		ycqqs ,
+		jzqk ,
+		zyqq ,
+		jsdw ,
+		jbxxlxdm ,
+		ydbzdm ,
+		sjlydw ,
+		zjgxsj ,
+		bz ,
+		kblx ,
+		fsyy ,
+		swzs ,
+		ssrs ,
+		xzrs ,
+		xxly ,
+		ssqzrs ,
+		cyjyrs ,
+		jbsj ,
+		czsj ,
+		ebsid 
+	</sql>
+	
+	<!-- 新增BASE_SJJBJBSJ 信息字段 -->
+  	<sql id="BaseSjjbjbsjInsertSQL">
+	    (
+			jbbh ,
+			xxbt ,
+			sjbh ,
+			bssj ,
+			bsfsdm ,
+			bsr ,
+			bsdw ,
+			bsdwlxdh ,
+			sjlxdm ,
+			sjdjdm ,
+			sfsj ,
+			sfdd ,
+			sfxzhq ,
+			sjfwxzqh ,
+			sjms ,
+			zbxtdm ,
+			jd ,
+			wd ,
+			gcjzdm ,
+			gc ,
+			qfr ,
+			swrs ,
+			yxbj ,
+			yxcd ,
+			yxfw ,
+			zjjjss ,
+			ssqk ,
+			ycqqs ,
+			jzqk ,
+			zyqq ,
+			jsdw ,
+			jbxxlxdm ,
+			ydbzdm ,
+			sjlydw ,
+			zjgxsj ,
+			bz ,
+			kblx ,
+			fsyy ,
+			swzs ,
+			ssrs ,
+			xzrs ,
+			xxly ,
+			ssqzrs ,
+			cyjyrs ,
+			jbsj ,
+			czsj ,
+			ebsid 
+	    )
+  	</sql>
+  
+    <!-- 新增BASE_SJJBJBSJ 传入参数值 -->
+    <sql id="BaseSjjbjbsjParamsSQL">
+	     (
+			#{jbbh,jdbcType=VARCHAR} ,
+			#{xxbt,jdbcType=VARCHAR} ,
+			#{sjbh,jdbcType=VARCHAR} ,
+			#{bssj,jdbcType=TIMESTAMP} ,
+			#{bsfsdm,jdbcType=VARCHAR} ,
+			#{bsr,jdbcType=VARCHAR} ,
+			#{bsdw,jdbcType=VARCHAR} ,
+			#{bsdwlxdh,jdbcType=VARCHAR} ,
+			#{sjlxdm,jdbcType=VARCHAR} ,
+			#{sjdjdm,jdbcType=VARCHAR} ,
+			#{sfsj,jdbcType=TIMESTAMP} ,
+			#{sfdd,jdbcType=VARCHAR} ,
+			#{sfxzhq,jdbcType=VARCHAR} ,
+			#{sjfwxzqh,jdbcType=VARCHAR} ,
+			#{sjms,jdbcType=VARCHAR} ,
+			#{zbxtdm,jdbcType=VARCHAR} ,
+			#{jd,jdbcType=DECIMAL} ,
+			#{wd,jdbcType=DECIMAL} ,
+			#{gcjzdm,jdbcType=VARCHAR} ,
+			#{gc,jdbcType=DECIMAL} ,
+			#{qfr,jdbcType=VARCHAR} ,
+			#{swrs,jdbcType=INTEGER} ,
+			#{yxbj,jdbcType=DECIMAL} ,
+			#{yxcd,jdbcType=VARCHAR} ,
+			#{yxfw,jdbcType=VARCHAR} ,
+			#{zjjjss,jdbcType=VARCHAR} ,
+			#{ssqk,jdbcType=VARCHAR} ,
+			#{ycqqs,jdbcType=VARCHAR} ,
+			#{jzqk,jdbcType=VARCHAR} ,
+			#{zyqq,jdbcType=VARCHAR} ,
+			#{jsdw,jdbcType=VARCHAR} ,
+			#{jbxxlxdm,jdbcType=VARCHAR} ,
+			#{ydbzdm,jdbcType=VARCHAR} ,
+			#{sjlydw,jdbcType=VARCHAR} ,
+			#{zjgxsj,jdbcType=TIMESTAMP} ,
+			#{bz,jdbcType=VARCHAR} ,
+			#{kblx,jdbcType=INTEGER} ,
+			#{fsyy,jdbcType=VARCHAR} ,
+			#{swzs,jdbcType=INTEGER} ,
+			#{ssrs,jdbcType=INTEGER} ,
+			#{xzrs,jdbcType=INTEGER} ,
+			#{xxly,jdbcType=VARCHAR} ,
+			#{ssqzrs,jdbcType=INTEGER} ,
+			#{cyjyrs,jdbcType=INTEGER} ,
+			#{jbsj,jdbcType=TIMESTAMP} ,
+			#{czsj,jdbcType=TIMESTAMP} ,
+			#{ebsid,jdbcType=VARCHAR} 
+	     )
+    </sql>
+  
+	<!-- 修改BASE_SJJBJBSJ属性字段 -->
+	<sql id="BaseSjjbjbsjUpdateSQL">
+		<if test="fields.get('jbbh')!=null">
+			jbbh = #{data.jbbh,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('xxbt')!=null">
+			xxbt = #{data.xxbt,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('sjbh')!=null">
+			sjbh = #{data.sjbh,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('bssj')!=null">
+			bssj = #{data.bssj,jdbcType=TIMESTAMP},
+		</if>
+		<if test="fields.get('bsfsdm')!=null">
+			bsfsdm = #{data.bsfsdm,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('bsr')!=null">
+			bsr = #{data.bsr,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('bsdw')!=null">
+			bsdw = #{data.bsdw,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('bsdwlxdh')!=null">
+			bsdwlxdh = #{data.bsdwlxdh,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('sjlxdm')!=null">
+			sjlxdm = #{data.sjlxdm,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('sjdjdm')!=null">
+			sjdjdm = #{data.sjdjdm,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('sfsj')!=null">
+			sfsj = #{data.sfsj,jdbcType=TIMESTAMP},
+		</if>
+		<if test="fields.get('sfdd')!=null">
+			sfdd = #{data.sfdd,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('sfxzhq')!=null">
+			sfxzhq = #{data.sfxzhq,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('sjfwxzqh')!=null">
+			sjfwxzqh = #{data.sjfwxzqh,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('sjms')!=null">
+			sjms = #{data.sjms,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('zbxtdm')!=null">
+			zbxtdm = #{data.zbxtdm,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('jd')!=null">
+			jd = #{data.jd,jdbcType=DECIMAL},
+		</if>
+		<if test="fields.get('wd')!=null">
+			wd = #{data.wd,jdbcType=DECIMAL},
+		</if>
+		<if test="fields.get('gcjzdm')!=null">
+			gcjzdm = #{data.gcjzdm,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('gc')!=null">
+			gc = #{data.gc,jdbcType=DECIMAL},
+		</if>
+		<if test="fields.get('qfr')!=null">
+			qfr = #{data.qfr,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('swrs')!=null">
+			swrs = #{data.swrs,jdbcType=INTEGER},
+		</if>
+		<if test="fields.get('yxbj')!=null">
+			yxbj = #{data.yxbj,jdbcType=DECIMAL},
+		</if>
+		<if test="fields.get('yxcd')!=null">
+			yxcd = #{data.yxcd,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('yxfw')!=null">
+			yxfw = #{data.yxfw,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('zjjjss')!=null">
+			zjjjss = #{data.zjjjss,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('ssqk')!=null">
+			ssqk = #{data.ssqk,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('ycqqs')!=null">
+			ycqqs = #{data.ycqqs,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('jzqk')!=null">
+			jzqk = #{data.jzqk,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('zyqq')!=null">
+			zyqq = #{data.zyqq,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('jsdw')!=null">
+			jsdw = #{data.jsdw,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('jbxxlxdm')!=null">
+			jbxxlxdm = #{data.jbxxlxdm,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('ydbzdm')!=null">
+			ydbzdm = #{data.ydbzdm,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('sjlydw')!=null">
+			sjlydw = #{data.sjlydw,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('zjgxsj')!=null">
+			zjgxsj = #{data.zjgxsj,jdbcType=TIMESTAMP},
+		</if>
+		<if test="fields.get('bz')!=null">
+			bz = #{data.bz,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('kblx')!=null">
+			kblx = #{data.kblx,jdbcType=INTEGER},
+		</if>
+		<if test="fields.get('fsyy')!=null">
+			fsyy = #{data.fsyy,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('swzs')!=null">
+			swzs = #{data.swzs,jdbcType=INTEGER},
+		</if>
+		<if test="fields.get('ssrs')!=null">
+			ssrs = #{data.ssrs,jdbcType=INTEGER},
+		</if>
+		<if test="fields.get('xzrs')!=null">
+			xzrs = #{data.xzrs,jdbcType=INTEGER},
+		</if>
+		<if test="fields.get('xxly')!=null">
+			xxly = #{data.xxly,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('ssqzrs')!=null">
+			ssqzrs = #{data.ssqzrs,jdbcType=INTEGER},
+		</if>
+		<if test="fields.get('cyjyrs')!=null">
+			cyjyrs = #{data.cyjyrs,jdbcType=INTEGER},
+		</if>
+		<if test="fields.get('jbsj')!=null">
+			jbsj = #{data.jbsj,jdbcType=TIMESTAMP},
+		</if>
+		<if test="fields.get('czsj')!=null">
+			czsj = #{data.czsj,jdbcType=TIMESTAMP},
+		</if>
+		<if test="fields.get('ebsid')!=null">
+			ebsid = #{data.ebsid,jdbcType=VARCHAR},
+		</if>
+	</sql>
+	
+	<!-- BASE_SJJBJBSJ 查询(包括条件按查询) -->
+	<sql id="BaseSjjbjbsjWhereSQL">
+	 		<if test="body.jbbh != null and body.jbbh != ''">
+	 			and jbbh = #{body.jbbh}
+	 		</if>
+	 		<if test="body.xxbt != null and body.xxbt != ''">
+	 			and xxbt = #{body.xxbt}
+	 		</if>
+	 		<if test="body.sjbh != null and body.sjbh != ''">
+	 			and sjbh = #{body.sjbh}
+	 		</if>
+	 		<if test="body.bssj != null">
+	 			and bssj = #{body.bssj}
+	 		</if>
+	 		<if test="body.bsfsdm != null and body.bsfsdm != ''">
+	 			and bsfsdm = #{body.bsfsdm}
+	 		</if>
+	 		<if test="body.bsr != null and body.bsr != ''">
+	 			and bsr = #{body.bsr}
+	 		</if>
+	 		<if test="body.bsdw != null and body.bsdw != ''">
+	 			and bsdw = #{body.bsdw}
+	 		</if>
+	 		<if test="body.bsdwlxdh != null and body.bsdwlxdh != ''">
+	 			and bsdwlxdh = #{body.bsdwlxdh}
+	 		</if>
+	 		<if test="body.sjlxdm != null and body.sjlxdm != ''">
+	 			and sjlxdm = #{body.sjlxdm}
+	 		</if>
+	 		<if test="body.sjdjdm != null and body.sjdjdm != ''">
+	 			and sjdjdm = #{body.sjdjdm}
+	 		</if>
+	 		<if test="body.sfsj != null">
+	 			and sfsj = #{body.sfsj}
+	 		</if>
+	 		<if test="body.sfdd != null and body.sfdd != ''">
+	 			and sfdd = #{body.sfdd}
+	 		</if>
+	 		<if test="body.sfxzhq != null and body.sfxzhq != ''">
+	 			and sfxzhq = #{body.sfxzhq}
+	 		</if>
+	 		<if test="body.sjfwxzqh != null and body.sjfwxzqh != ''">
+	 			and sjfwxzqh = #{body.sjfwxzqh}
+	 		</if>
+	 		<if test="body.sjms != null and body.sjms != ''">
+	 			and sjms = #{body.sjms}
+	 		</if>
+	 		<if test="body.zbxtdm != null and body.zbxtdm != ''">
+	 			and zbxtdm = #{body.zbxtdm}
+	 		</if>
+	 		<if test="body.jd != null">
+	 			and jd = #{body.jd}
+	 		</if>
+	 		<if test="body.wd != null">
+	 			and wd = #{body.wd}
+	 		</if>
+	 		<if test="body.gcjzdm != null and body.gcjzdm != ''">
+	 			and gcjzdm = #{body.gcjzdm}
+	 		</if>
+	 		<if test="body.gc != null">
+	 			and gc = #{body.gc}
+	 		</if>
+	 		<if test="body.qfr != null and body.qfr != ''">
+	 			and qfr = #{body.qfr}
+	 		</if>
+	 		<if test="body.swrs != null">
+	 			and swrs = #{body.swrs}
+	 		</if>
+	 		<if test="body.yxbj != null">
+	 			and yxbj = #{body.yxbj}
+	 		</if>
+	 		<if test="body.yxcd != null and body.yxcd != ''">
+	 			and yxcd = #{body.yxcd}
+	 		</if>
+	 		<if test="body.yxfw != null and body.yxfw != ''">
+	 			and yxfw = #{body.yxfw}
+	 		</if>
+	 		<if test="body.zjjjss != null and body.zjjjss != ''">
+	 			and zjjjss = #{body.zjjjss}
+	 		</if>
+	 		<if test="body.ssqk != null and body.ssqk != ''">
+	 			and ssqk = #{body.ssqk}
+	 		</if>
+	 		<if test="body.ycqqs != null and body.ycqqs != ''">
+	 			and ycqqs = #{body.ycqqs}
+	 		</if>
+	 		<if test="body.jzqk != null and body.jzqk != ''">
+	 			and jzqk = #{body.jzqk}
+	 		</if>
+	 		<if test="body.zyqq != null and body.zyqq != ''">
+	 			and zyqq = #{body.zyqq}
+	 		</if>
+	 		<if test="body.jsdw != null and body.jsdw != ''">
+	 			and jsdw = #{body.jsdw}
+	 		</if>
+	 		<if test="body.jbxxlxdm != null and body.jbxxlxdm != ''">
+	 			and jbxxlxdm = #{body.jbxxlxdm}
+	 		</if>
+	 		<if test="body.ydbzdm != null and body.ydbzdm != ''">
+	 			and ydbzdm = #{body.ydbzdm}
+	 		</if>
+	 		<if test="body.sjlydw != null and body.sjlydw != ''">
+	 			and sjlydw = #{body.sjlydw}
+	 		</if>
+	 		<if test="body.zjgxsj != null">
+	 			and zjgxsj = #{body.zjgxsj}
+	 		</if>
+	 		<if test="body.bz != null and body.bz != ''">
+	 			and bz = #{body.bz}
+	 		</if>
+	 		<if test="body.kblx != null">
+	 			and kblx = #{body.kblx}
+	 		</if>
+	 		<if test="body.fsyy != null and body.fsyy != ''">
+	 			and fsyy = #{body.fsyy}
+	 		</if>
+	 		<if test="body.swzs != null">
+	 			and swzs = #{body.swzs}
+	 		</if>
+	 		<if test="body.ssrs != null">
+	 			and ssrs = #{body.ssrs}
+	 		</if>
+	 		<if test="body.xzrs != null">
+	 			and xzrs = #{body.xzrs}
+	 		</if>
+	 		<if test="body.xxly != null and body.xxly != ''">
+	 			and xxly = #{body.xxly}
+	 		</if>
+	 		<if test="body.ssqzrs != null">
+	 			and ssqzrs = #{body.ssqzrs}
+	 		</if>
+	 		<if test="body.cyjyrs != null">
+	 			and cyjyrs = #{body.cyjyrs}
+	 		</if>
+	 		<if test="body.jbsj != null">
+	 			and jbsj = #{body.jbsj}
+	 		</if>
+	 		<if test="body.czsj != null">
+	 			and czsj = #{body.czsj}
+	 		</if>
+	 		<if test="body.ebsid != null and body.ebsid != ''">
+	 			and ebsid = #{body.ebsid}
+	 		</if>
+	</sql>
+
+	<!-- BASE_SJJBJBSJ 表关联项目信息表结果集属性声明 -->
+	<resultMap type="BaseSjjbjbsj" id="BaseSjjbjbsjResultMap">
+			<id property="jbbh" column="jbbh"/>
+			<result property="xxbt" column="xxbt"/>
+			<result property="sjbh" column="sjbh"/>
+			<result property="bssj" column="bssj"/>
+			<result property="bsfsdm" column="bsfsdm"/>
+			<result property="bsr" column="bsr"/>
+			<result property="bsdw" column="bsdw"/>
+			<result property="bsdwlxdh" column="bsdwlxdh"/>
+			<result property="sjlxdm" column="sjlxdm"/>
+			<result property="sjdjdm" column="sjdjdm"/>
+			<result property="sfsj" column="sfsj"/>
+			<result property="sfdd" column="sfdd"/>
+			<result property="sfxzhq" column="sfxzhq"/>
+			<result property="sjfwxzqh" column="sjfwxzqh"/>
+			<result property="sjms" column="sjms"/>
+			<result property="zbxtdm" column="zbxtdm"/>
+			<result property="jd" column="jd"/>
+			<result property="wd" column="wd"/>
+			<result property="gcjzdm" column="gcjzdm"/>
+			<result property="gc" column="gc"/>
+			<result property="qfr" column="qfr"/>
+			<result property="swrs" column="swrs"/>
+			<result property="yxbj" column="yxbj"/>
+			<result property="yxcd" column="yxcd"/>
+			<result property="yxfw" column="yxfw"/>
+			<result property="zjjjss" column="zjjjss"/>
+			<result property="ssqk" column="ssqk"/>
+			<result property="ycqqs" column="ycqqs"/>
+			<result property="jzqk" column="jzqk"/>
+			<result property="zyqq" column="zyqq"/>
+			<result property="jsdw" column="jsdw"/>
+			<result property="jbxxlxdm" column="jbxxlxdm"/>
+			<result property="ydbzdm" column="ydbzdm"/>
+			<result property="sjlydw" column="sjlydw"/>
+			<result property="zjgxsj" column="zjgxsj"/>
+			<result property="bz" column="bz"/>
+			<result property="kblx" column="kblx"/>
+			<result property="fsyy" column="fsyy"/>
+			<result property="swzs" column="swzs"/>
+			<result property="ssrs" column="ssrs"/>
+			<result property="xzrs" column="xzrs"/>
+			<result property="xxly" column="xxly"/>
+			<result property="ssqzrs" column="ssqzrs"/>
+			<result property="cyjyrs" column="cyjyrs"/>
+			<result property="jbsj" column="jbsj"/>
+			<result property="czsj" column="czsj"/>
+			<result property="ebsid" column="ebsid"/>
+	</resultMap>
+
+	<!-- ======================DML语句配置====================== -->
+	<!-- BASE_SJJBJBSJ 信息查询语句 -->
+	<select id="findBaseSjjbjbsj" resultMap="BaseSjjbjbsjResultMap">
+		SELECT 
+			<include refid="BaseSjjbjbsjSQL" />
+		FROM  BASE_SJJBJBSJ 
+		<where>
+			<include refid="BaseSjjbjbsjWhereSQL" />
+		</where>
+		<!-- 通用查询排序 -->
+		ORDER BY ${sortName} ${sortOrder}
+	</select>
+	
+	<!-- BASE_SJJBJBSJ 信息查询语句 -->
+	<select id="findByIdBaseSjjbjbsj" resultMap="BaseSjjbjbsjResultMap">
+		SELECT 
+			<include refid="BaseSjjbjbsjSQL" />
+		FROM  BASE_SJJBJBSJ
+		<where> 
+			JBBH = #{sid}
+		</where>
+	</select>
+	<select id="findByIdsBaseSjjbjbsj" resultMap="BaseSjjbjbsjResultMap">
+		SELECT 
+			<include refid="BaseSjjbjbsjSQL" />
+		FROM  BASE_SJJBJBSJ
+		<where>
+			JBBH IN
+			<foreach collection="ids" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+		</where>
+	</select>
+	
+	<!-- BASE_SJJBJBSJ 数量查询SQL -->
+	<select id="countBaseSjjbjbsj" resultType="Integer">
+		SELECT count(*) total FROM  BASE_SJJBJBSJ
+		<where>
+			<include refid="BaseSjjbjbsjWhereSQL" />
+		</where>
+	</select>
+  
+  	<!-- 新增BASE_SJJBJBSJ 信息 -->
+	<insert id="addBaseSjjbjbsj" parameterType="BaseSjjbjbsj">
+		INSERT INTO BASE_SJJBJBSJ <include refid="BaseSjjbjbsjInsertSQL"/>
+		VALUES <include refid="BaseSjjbjbsjParamsSQL"/>
+	</insert>
+	
+	<!-- 修改BASE_SJJBJBSJ 信息 -->
+	<update id="updateBaseSjjbjbsj" parameterType="BaseSjjbjbsj">
+		UPDATE BASE_SJJBJBSJ
+		SET    <include refid="BaseSjjbjbsjUpdateSQL" />
+		<where>
+			JBBH=#{sid}
+		</where>  
+	</update>
+	
+	<!-- 删除BASE_SJJBJBSJ 信息 -->
+	<update id="deleteBaseSjjbjbsj" parameterType="BaseSjjbjbsj">
+		DELETE FROM BASE_SJJBJBSJ WHERE  JBBH=#{sid}
+	</update>
+	
+	<!-- 删除BASE_SJJBJBSJ 信息 -->
+	<update id="deleteByIdBaseSjjbjbsj" >
+		DELETE FROM BASE_SJJBJBSJ
+		<where>
+			JBBH IN
+			<foreach collection="ids" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+		</where>
+	</update>
+	
+	<!-- ======================DML方言配置====================== -->
+	<!-- xxx 信息查询语句,后缀必须(mysql|oracle...) -->
+</mapper>
