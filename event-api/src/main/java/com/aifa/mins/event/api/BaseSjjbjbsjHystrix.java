@@ -49,6 +49,13 @@ public class BaseSjjbjbsjHystrix  extends HystrixFactory<BaseSjjbjbsjApi> {
                 return result;
 			}
 
+			@Override
+			public Results<List<BaseSjjbjbsj>> findResubmit(Params<BaseSjjbjbsj> params) {
+				Results<List<BaseSjjbjbsj>> result=new Results<>();
+                result.setMessage("BaseSjjbjbsjApi 默认降级消息");
+                return result;
+			}
+
         });
     }
 }

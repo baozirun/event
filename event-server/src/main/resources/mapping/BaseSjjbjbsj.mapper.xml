@@ -501,6 +501,59 @@
 			<result property="czsj" column="czsj"/>
 			<result property="ebsid" column="ebsid"/>
 	</resultMap>
+	
+	<resultMap type="BaseSjjbjbsj" id="TreeBaseSjjbjbsjResultMap">
+			<id property="jbbh" column="jbbh"/>
+			<result property="xxbt" column="xxbt"/>
+			<result property="sjbh" column="sjbh"/>
+			<result property="bssj" column="bssj"/>
+			<result property="bsfsdm" column="bsfsdm"/>
+			<result property="bsr" column="bsr"/>
+			<result property="bsdw" column="bsdw"/>
+			<result property="bsdwlxdh" column="bsdwlxdh"/>
+			<result property="sjlxdm" column="sjlxdm"/>
+			<result property="sjdjdm" column="sjdjdm"/>
+			<result property="sfsj" column="sfsj"/>
+			<result property="sfdd" column="sfdd"/>
+			<result property="sfxzhq" column="sfxzhq"/>
+			<result property="sjfwxzqh" column="sjfwxzqh"/>
+			<result property="sjms" column="sjms"/>
+			<result property="zbxtdm" column="zbxtdm"/>
+			<result property="jd" column="jd"/>
+			<result property="wd" column="wd"/>
+			<result property="gcjzdm" column="gcjzdm"/>
+			<result property="gc" column="gc"/>
+			<result property="qfr" column="qfr"/>
+			<result property="swrs" column="swrs"/>
+			<result property="yxbj" column="yxbj"/>
+			<result property="yxcd" column="yxcd"/>
+			<result property="yxfw" column="yxfw"/>
+			<result property="zjjjss" column="zjjjss"/>
+			<result property="ssqk" column="ssqk"/>
+			<result property="ycqqs" column="ycqqs"/>
+			<result property="jzqk" column="jzqk"/>
+			<result property="zyqq" column="zyqq"/>
+			<result property="jsdw" column="jsdw"/>
+			<result property="jbxxlxdm" column="jbxxlxdm"/>
+			<result property="ydbzdm" column="ydbzdm"/>
+			<result property="sjlydw" column="sjlydw"/>
+			<result property="zjgxsj" column="zjgxsj"/>
+			<result property="bz" column="bz"/>
+			<result property="kblx" column="kblx"/>
+			<result property="fsyy" column="fsyy"/>
+			<result property="swzs" column="swzs"/>
+			<result property="ssrs" column="ssrs"/>
+			<result property="xzrs" column="xzrs"/>
+			<result property="xxly" column="xxly"/>
+			<result property="ssqzrs" column="ssqzrs"/>
+			<result property="cyjyrs" column="cyjyrs"/>
+			<result property="jbsj" column="jbsj"/>
+			<result property="czsj" column="czsj"/>
+			<result property="ebsid" column="ebsid"/>
+			<collection property="children" ofType="BaseSjjbjbsj"
+				select="findBaseSjjbjbsjTree" column="jbbh">
+        	</collection>
+	</resultMap>
 
 	<!-- ======================DML语句配置====================== -->
 	<!-- BASE_SJJBJBSJ 信息查询语句 -->
@@ -574,6 +627,23 @@
 			</foreach>
 		</where>
 	</update>
+	
+		<!-- BASE_SJJBJBSJ 信息查询语句 -->
+	<select id="findBaseSjjbjbsjTreeList" resultMap="TreeBaseSjjbjbsjResultMap">
+		SELECT 
+			<include refid="BaseSjjbjbsjSQL" />
+		FROM  BASE_SJJBJBSJ 
+		<where>
+			<include refid="BaseSjjbjbsjWhereSQL" />
+		</where>
+	</select>
+	
+	<select id="findBaseSjjbjbsjTree" resultMap="TreeBaseSjjbjbsjResultMap">
+		SELECT 
+			<include refid="BaseSjjbjbsjSQL" />
+		FROM  BASE_SJJBJBSJ 
+		where ebsid = #{jbbh}
+	</select>
 	
 	<!-- ======================DML方言配置====================== -->
 	<!-- xxx 信息查询语句,后缀必须(mysql|oracle...) -->

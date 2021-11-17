@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -106,6 +107,47 @@ public class BaseSjjbjbsjController implements BaseSjjbjbsjApi{
 		LogsUtil.success(null, null);
 
 		log.debug("退出控制:查看BASE_SJJBJBSJ详细信息方法，sid:{},result:{}",sid,results.isSuccess());
+		return results;
+	}
+
+
+	@Override
+	public Results<List<BaseSjjbjbsj>> findResubmit(Params<BaseSjjbjbsj> params) {
+		log.debug("进入控制:查询BASE_SJJBJBSJ列表方法,params:{}",params);
+		Results<List<BaseSjjbjbsj>> results = new Results<>();
+		LogsUtil.set(LogType.Query, "查询BASE_SJJBJBSJ列表");
+		
+		// 统计数量
+		Integer total=dataBaseService.selectOne("countBaseSjjbjbsj",params);
+		params.setTotal(total);
+		LogsUtil.add("分页数据查询，数据总量count:"+total);
+		
+		// 执行查询
+		List<BaseSjjbjbsj> rows = dataBaseService.selectListByPage("findBaseSjjbjbsjTreeList", params);
+		LogsUtil.add("分页数据查询，记录数量size:"+rows.size());
+		List<BaseSjjbjbsj> newList = new ArrayList<>();
+		if (rows != null && rows.size() > 0) {
+			// 数据处理
+			int i = 0;
+			List<BaseSjjbjbsj> childrenSjjbjbsj = rows.get(0).getChildren();
+			while (childrenSjjbjbsj != null && childrenSjjbjbsj.size() > 0) {
+				newList.add(childrenSjjbjbsj.get(0));
+				childrenSjjbjbsj = childrenSjjbjbsj.get(0).getChildren();
+				newList.get(i).setChildren(null);
+				i++;
+				if (i == 200) {
+					LogsUtil.add("循环次数："+i+"！！！");
+					break;
+				}
+			}
+		}
+		
+		results.setTotal(newList!=null&&newList.size()>0?newList.size():0);
+		results.setBody(newList);
+		results.setSuccess(true);
+		LogsUtil.success();
+
+		log.debug("退出控制:查询BASE_SJJBJBSJ列表方法,params:{},result:{}",params,results.isSuccess());
 		return results;
 	}
 	

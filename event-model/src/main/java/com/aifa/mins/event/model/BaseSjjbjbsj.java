@@ -314,4 +314,6 @@ public class BaseSjjbjbsj{
 	@ApiModelProperty("主键集合")
 	private List<String> ids;
 	
+	@ApiModelProperty("树形结构数据集")
+	private List<BaseSjjbjbsj> children;
 }

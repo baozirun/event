@@ -6,6 +6,7 @@ import com.aifa.mins.event.model.BaseSjjbjbsj;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -47,4 +48,8 @@ public interface BaseSjjbjbsjApi{
 	@PostMapping("detail")
 	@ApiOperation("查询详情")
 	Results<BaseSjjbjbsj> detail(String sid);
+	
+	@PostMapping({"/findResubmit"})
+	@ApiOperation("获取除首报外其它报的数据")
+	Results<List<BaseSjjbjbsj>> findResubmit(@RequestBody Params<BaseSjjbjbsj> params);
 }
