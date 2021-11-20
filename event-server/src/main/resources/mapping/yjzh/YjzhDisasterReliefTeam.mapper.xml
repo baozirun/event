@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"     
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.aifa.mins.event.model.yjzh.YjzhDisasterReliefTeam">
+
+	<!-- =====================Field字段配置===================== -->
+	<!-- YJZH_DISASTER_RELIEF_TEAM 字段 -->
+	<sql id="YjzhDisasterReliefTeamSQL">
+		SID ,
+		TENANT_ID ,
+		NAME ,
+		STATUS ,
+		NUMBER_PEOPLE ,
+		DIRECTOR ,
+		DIRECTOR_TEL ,
+		LONGITUDE ,
+		LATITUDE ,
+		CREATED_BY ,
+		CREATED ,
+		LAST_UPDATED_BY ,
+		LAST_UPDATED ,
+		EVENT_ID 
+	</sql>
+	
+	<!-- 新增YJZH_DISASTER_RELIEF_TEAM 信息字段 -->
+  	<sql id="YjzhDisasterReliefTeamInsertSQL">
+	    (
+			SID ,
+			TENANT_ID ,
+			NAME ,
+			STATUS ,
+			NUMBER_PEOPLE ,
+			DIRECTOR ,
+			DIRECTOR_TEL ,
+			LONGITUDE ,
+			LATITUDE ,
+			CREATED_BY ,
+			CREATED ,
+			LAST_UPDATED_BY ,
+			LAST_UPDATED ,
+			EVENT_ID 
+	    )
+  	</sql>
+  
+    <!-- 新增YJZH_DISASTER_RELIEF_TEAM 传入参数值 -->
+    <sql id="YjzhDisasterReliefTeamParamsSQL">
+	     (
+			#{sid,jdbcType=BIGINT} ,
+			#{tenantId,jdbcType=BIGINT} ,
+			#{name,jdbcType=VARCHAR} ,
+			#{status,jdbcType=VARCHAR} ,
+			#{numberPeople,jdbcType=INTEGER} ,
+			#{director,jdbcType=VARCHAR} ,
+			#{directorTel,jdbcType=VARCHAR} ,
+			#{longitude,jdbcType=VARCHAR} ,
+			#{latitude,jdbcType=VARCHAR} ,
+			#{createdBy,jdbcType=BIGINT} ,
+			#{created,jdbcType=TIMESTAMP} ,
+			#{lastUpdatedBy,jdbcType=BIGINT} ,
+			#{lastUpdated,jdbcType=TIMESTAMP} ,
+			#{eventId,jdbcType=VARCHAR} 
+	     )
+    </sql>
+  
+	<!-- 修改YJZH_DISASTER_RELIEF_TEAM属性字段 -->
+	<sql id="YjzhDisasterReliefTeamUpdateSQL">
+		<if test="fields.get('tenantId')!=null">
+			TENANT_ID = #{data.tenantId,jdbcType=BIGINT},
+		</if>
+		<if test="fields.get('name')!=null">
+			NAME = #{data.name,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('status')!=null">
+			STATUS = #{data.status,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('numberPeople')!=null">
+			NUMBER_PEOPLE = #{data.numberPeople,jdbcType=INTEGER},
+		</if>
+		<if test="fields.get('director')!=null">
+			DIRECTOR = #{data.director,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('directorTel')!=null">
+			DIRECTOR_TEL = #{data.directorTel,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('longitude')!=null">
+			LONGITUDE = #{data.longitude,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('latitude')!=null">
+			LATITUDE = #{data.latitude,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('eventId')!=null">
+			EVENT_ID = #{data.eventId,jdbcType=VARCHAR},
+		</if>
+			LAST_UPDATED = #{data.lastUpdated,jdbcType=TIMESTAMP} ,
+			LAST_UPDATED_BY = #{data.lastUpdatedBy,jdbcType=BIGINT} 
+	</sql>
+	
+	<!-- YJZH_DISASTER_RELIEF_TEAM 查询(包括条件按查询) -->
+	<sql id="YjzhDisasterReliefTeamWhereSQL">
+	 		<if test="body.sid != null">
+	 			and SID = #{body.sid}
+	 		</if>
+	 		<if test="body.tenantId != null">
+	 			and TENANT_ID = #{body.tenantId}
+	 		</if>
+	 		<if test="body.name != null and body.name != ''">
+	 			and NAME = #{body.name}
+	 		</if>
+	 		<if test="body.status != null and body.status != ''">
+	 			and STATUS = #{body.status}
+	 		</if>
+	 		<if test="body.numberPeople != null">
+	 			and NUMBER_PEOPLE = #{body.numberPeople}
+	 		</if>
+	 		<if test="body.director != null and body.director != ''">
+	 			and DIRECTOR = #{body.director}
+	 		</if>
+	 		<if test="body.directorTel != null and body.directorTel != ''">
+	 			and DIRECTOR_TEL = #{body.directorTel}
+	 		</if>
+	 		<if test="body.longitude != null and body.longitude != ''">
+	 			and LONGITUDE = #{body.longitude}
+	 		</if>
+	 		<if test="body.latitude != null and body.latitude != ''">
+	 			and LATITUDE = #{body.latitude}
+	 		</if>
+	 		<if test="body.eventId != null and body.eventId != ''">
+	 			and EVENT_ID = #{body.eventId}
+	 		</if>
+	</sql>
+
+	<!-- YJZH_DISASTER_RELIEF_TEAM 表关联项目信息表结果集属性声明 -->
+	<resultMap type="YjzhDisasterReliefTeam" id="YjzhDisasterReliefTeamResultMap">
+		<id column="SID" property="sid" />
+			<result property="tenantId" column="TENANT_ID"/>
+			<result property="name" column="NAME"/>
+			<result property="status" column="STATUS"/>
+			<result property="numberPeople" column="NUMBER_PEOPLE"/>
+			<result property="director" column="DIRECTOR"/>
+			<result property="directorTel" column="DIRECTOR_TEL"/>
+			<result property="longitude" column="LONGITUDE"/>
+			<result property="latitude" column="LATITUDE"/>
+			<result property="createdBy" column="CREATED_BY"/>
+			<result property="created" column="CREATED"/>
+			<result property="lastUpdatedBy" column="LAST_UPDATED_BY"/>
+			<result property="lastUpdated" column="LAST_UPDATED"/>
+			<result property="eventId" column="EVENT_ID"/>
+	</resultMap>
+
+	<!-- ======================DML语句配置====================== -->
+	<!-- YJZH_DISASTER_RELIEF_TEAM 信息查询语句 -->
+	<select id="findYjzhDisasterReliefTeam" resultMap="YjzhDisasterReliefTeamResultMap">
+		SELECT 
+			<include refid="YjzhDisasterReliefTeamSQL" />
+		FROM  YJZH_DISASTER_RELIEF_TEAM 
+		<where>
+			<include refid="YjzhDisasterReliefTeamWhereSQL" />
+		</where>
+		<!-- 通用查询排序 -->
+		ORDER BY ${sortName} ${sortOrder}
+	</select>
+	
+	<!-- YJZH_DISASTER_RELIEF_TEAM 信息查询语句 -->
+	<select id="findByIdYjzhDisasterReliefTeam" resultMap="YjzhDisasterReliefTeamResultMap">
+		SELECT 
+			<include refid="YjzhDisasterReliefTeamSQL" />
+		FROM  YJZH_DISASTER_RELIEF_TEAM
+		<where> 
+			SID = #{sid}
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</select>
+	<select id="findByIdsYjzhDisasterReliefTeam" resultMap="YjzhDisasterReliefTeamResultMap">
+		SELECT 
+			<include refid="YjzhDisasterReliefTeamSQL" />
+		FROM  YJZH_DISASTER_RELIEF_TEAM
+		<where> 
+			SID IN
+			<foreach collection="ids" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</select>
+	
+	<!-- YJZH_DISASTER_RELIEF_TEAM 数量查询SQL -->
+	<select id="countYjzhDisasterReliefTeam" resultType="Integer">
+		SELECT count(*) total FROM  YJZH_DISASTER_RELIEF_TEAM
+		<where>
+			<include refid="YjzhDisasterReliefTeamWhereSQL" />
+		</where>
+	</select>
+  
+  	<!-- 新增YJZH_DISASTER_RELIEF_TEAM 信息 -->
+	<insert id="addYjzhDisasterReliefTeam" parameterType="YjzhDisasterReliefTeam">
+		INSERT INTO YJZH_DISASTER_RELIEF_TEAM <include refid="YjzhDisasterReliefTeamInsertSQL"/>
+		VALUES <include refid="YjzhDisasterReliefTeamParamsSQL"/>
+	</insert>
+	
+	<!-- 修改YJZH_DISASTER_RELIEF_TEAM 信息 -->
+	<update id="updateYjzhDisasterReliefTeam" parameterType="YjzhDisasterReliefTeam">
+		UPDATE YJZH_DISASTER_RELIEF_TEAM
+		SET    <include refid="YjzhDisasterReliefTeamUpdateSQL" />
+		<where>
+			SID=#{sid}
+			<if test="tenantId != null">
+				AND	TENANT_ID=#{tenantId}
+			</if>
+		</where>  
+	</update>
+	
+	<!-- 删除YJZH_DISASTER_RELIEF_TEAM 信息 -->
+	<update id="deleteYjzhDisasterReliefTeam" parameterType="YjzhDisasterReliefTeam">
+		DELETE FROM YJZH_DISASTER_RELIEF_TEAM WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除YJZH_DISASTER_RELIEF_TEAM 信息 -->
+	<update id="deleteByIdYjzhDisasterReliefTeam" >
+		DELETE FROM YJZH_DISASTER_RELIEF_TEAM
+		<where> 
+			SID IN
+			<foreach collection="ids" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</update>
+	
+	<!-- ======================DML方言配置====================== -->
+	<!-- xxx 信息查询语句,后缀必须(mysql|oracle...) -->
+</mapper>

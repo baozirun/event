@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"     
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.aifa.mins.event.model.yjzh.YjzhPreventionDanger">
+
+	<!-- =====================Field字段配置===================== -->
+	<!-- YJZH_PREVENTION_DANGER 字段 -->
+	<sql id="YjzhPreventionDangerSQL">
+		SID ,
+		TENANT_ID ,
+		SOURCE ,
+		NAME ,
+		ADDER ,
+		ADDER_GIS ,
+		REPORTOR ,
+		PHONE ,
+		DETAIL ,
+		STATUS ,
+		CREATED_BY ,
+		CREATED ,
+		LAST_UPDATED_BY ,
+		LAST_UPDATED ,
+		LONGITUDE ,
+		LATITUDE ,
+		OCCURRENCE_TIME ,
+		ACCIDENT_TYPE ,
+		AREA_NAME ,
+		AREA_ID ,
+		REPORT_TIME 
+	</sql>
+	
+	<!-- 新增YJZH_PREVENTION_DANGER 信息字段 -->
+  	<sql id="YjzhPreventionDangerInsertSQL">
+	    (
+			SID ,
+			TENANT_ID ,
+			SOURCE ,
+			NAME ,
+			ADDER ,
+			ADDER_GIS ,
+			REPORTOR ,
+			PHONE ,
+			DETAIL ,
+			STATUS ,
+			CREATED_BY ,
+			CREATED ,
+			LAST_UPDATED_BY ,
+			LAST_UPDATED ,
+			LONGITUDE ,
+			LATITUDE ,
+			OCCURRENCE_TIME ,
+			ACCIDENT_TYPE ,
+			AREA_NAME ,
+			AREA_ID ,
+			REPORT_TIME 
+	    )
+  	</sql>
+  
+    <!-- 新增YJZH_PREVENTION_DANGER 传入参数值 -->
+    <sql id="YjzhPreventionDangerParamsSQL">
+	     (
+			#{sid,jdbcType=BIGINT} ,
+			#{tenantId,jdbcType=BIGINT} ,
+			#{source,jdbcType=VARCHAR} ,
+			#{name,jdbcType=VARCHAR} ,
+			#{adder,jdbcType=VARCHAR} ,
+			#{adderGis,jdbcType=VARCHAR} ,
+			#{reportor,jdbcType=VARCHAR} ,
+			#{phone,jdbcType=VARCHAR} ,
+			#{detail,jdbcType=VARCHAR} ,
+			#{status,jdbcType=VARCHAR} ,
+			#{createdBy,jdbcType=BIGINT} ,
+			#{created,jdbcType=TIMESTAMP} ,
+			#{lastUpdatedBy,jdbcType=BIGINT} ,
+			#{lastUpdated,jdbcType=TIMESTAMP} ,
+			#{longitude,jdbcType=VARCHAR} ,
+			#{latitude,jdbcType=VARCHAR} ,
+			#{occurrenceTime,jdbcType=TIMESTAMP} ,
+			#{accidentType,jdbcType=BIGINT} ,
+			#{areaName,jdbcType=VARCHAR} ,
+			#{areaId,jdbcType=BIGINT} ,
+			#{reportTime,jdbcType=TIMESTAMP} 
+	     )
+    </sql>
+  
+	<!-- 修改YJZH_PREVENTION_DANGER属性字段 -->
+	<sql id="YjzhPreventionDangerUpdateSQL">
+		<if test="fields.get('tenantId')!=null">
+			TENANT_ID = #{data.tenantId,jdbcType=BIGINT},
+		</if>
+		<if test="fields.get('source')!=null">
+			SOURCE = #{data.source,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('name')!=null">
+			NAME = #{data.name,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('adder')!=null">
+			ADDER = #{data.adder,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('adderGis')!=null">
+			ADDER_GIS = #{data.adderGis,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('reportor')!=null">
+			REPORTOR = #{data.reportor,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('phone')!=null">
+			PHONE = #{data.phone,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('detail')!=null">
+			DETAIL = #{data.detail,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('status')!=null">
+			STATUS = #{data.status,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('longitude')!=null">
+			LONGITUDE = #{data.longitude,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('latitude')!=null">
+			LATITUDE = #{data.latitude,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('occurrenceTime')!=null">
+			OCCURRENCE_TIME = #{data.occurrenceTime,jdbcType=TIMESTAMP},
+		</if>
+		<if test="fields.get('accidentType')!=null">
+			ACCIDENT_TYPE = #{data.accidentType,jdbcType=BIGINT},
+		</if>
+		<if test="fields.get('areaName')!=null">
+			AREA_NAME = #{data.areaName,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('areaId')!=null">
+			AREA_ID = #{data.areaId,jdbcType=BIGINT},
+		</if>
+		<if test="fields.get('reportTime')!=null">
+			REPORT_TIME = #{data.reportTime,jdbcType=TIMESTAMP},
+		</if>
+			LAST_UPDATED = #{data.lastUpdated,jdbcType=TIMESTAMP} ,
+			LAST_UPDATED_BY = #{data.lastUpdatedBy,jdbcType=BIGINT} 
+	</sql>
+	
+	<!-- YJZH_PREVENTION_DANGER 查询(包括条件按查询) -->
+	<sql id="YjzhPreventionDangerWhereSQL">
+	 		<if test="body.sid != null">
+	 			and SID = #{body.sid}
+	 		</if>
+	 		<if test="body.tenantId != null">
+	 			and TENANT_ID = #{body.tenantId}
+	 		</if>
+	 		<if test="body.source != null and body.source != ''">
+	 			and SOURCE = #{body.source}
+	 		</if>
+	 		<if test="body.name != null and body.name != ''">
+	 			and NAME = #{body.name}
+	 		</if>
+	 		<if test="body.adder != null and body.adder != ''">
+	 			and ADDER = #{body.adder}
+	 		</if>
+	 		<if test="body.adderGis != null and body.adderGis != ''">
+	 			and ADDER_GIS = #{body.adderGis}
+	 		</if>
+	 		<if test="body.reportor != null and body.reportor != ''">
+	 			and REPORTOR = #{body.reportor}
+	 		</if>
+	 		<if test="body.phone != null and body.phone != ''">
+	 			and PHONE = #{body.phone}
+	 		</if>
+	 		<if test="body.detail != null and body.detail != ''">
+	 			and DETAIL = #{body.detail}
+	 		</if>
+	 		<if test="body.status != null and body.status != ''">
+	 			and STATUS = #{body.status}
+	 		</if>
+	 		<if test="body.longitude != null and body.longitude != ''">
+	 			and LONGITUDE = #{body.longitude}
+	 		</if>
+	 		<if test="body.latitude != null and body.latitude != ''">
+	 			and LATITUDE = #{body.latitude}
+	 		</if>
+	 		<if test="body.occurrenceTime != null">
+	 			and OCCURRENCE_TIME = #{body.occurrenceTime}
+	 		</if>
+	 		<if test="body.accidentType != null">
+	 			and ACCIDENT_TYPE = #{body.accidentType}
+	 		</if>
+	 		<if test="body.areaName != null and body.areaName != ''">
+	 			and AREA_NAME = #{body.areaName}
+	 		</if>
+	 		<if test="body.areaId != null">
+	 			and AREA_ID = #{body.areaId}
+	 		</if>
+	 		<if test="body.reportTime != null">
+	 			and REPORT_TIME = #{body.reportTime}
+	 		</if>
+	</sql>
+
+	<!-- YJZH_PREVENTION_DANGER 表关联项目信息表结果集属性声明 -->
+	<resultMap type="YjzhPreventionDanger" id="YjzhPreventionDangerResultMap">
+		<id column="SID" property="sid" />
+			<result property="tenantId" column="TENANT_ID"/>
+			<result property="source" column="SOURCE"/>
+			<result property="name" column="NAME"/>
+			<result property="adder" column="ADDER"/>
+			<result property="adderGis" column="ADDER_GIS"/>
+			<result property="reportor" column="REPORTOR"/>
+			<result property="phone" column="PHONE"/>
+			<result property="detail" column="DETAIL"/>
+			<result property="status" column="STATUS"/>
+			<result property="createdBy" column="CREATED_BY"/>
+			<result property="created" column="CREATED"/>
+			<result property="lastUpdatedBy" column="LAST_UPDATED_BY"/>
+			<result property="lastUpdated" column="LAST_UPDATED"/>
+			<result property="longitude" column="LONGITUDE"/>
+			<result property="latitude" column="LATITUDE"/>
+			<result property="occurrenceTime" column="OCCURRENCE_TIME"/>
+			<result property="accidentType" column="ACCIDENT_TYPE"/>
+			<result property="areaName" column="AREA_NAME"/>
+			<result property="areaId" column="AREA_ID"/>
+			<result property="reportTime" column="REPORT_TIME"/>
+	</resultMap>
+
+	<!-- ======================DML语句配置====================== -->
+	<!-- YJZH_PREVENTION_DANGER 信息查询语句 -->
+	<select id="findYjzhPreventionDangerByEvent" resultMap="YjzhPreventionDangerResultMap">
+		SELECT * from
+		(SELECT
+		d.*,
+		(
+		6371 * acos (
+		cos ( radians( ${body.latitude}) ) * cos( radians( LATITUDE ) ) * cos( radians( LONGITUDE ) - radians( ${body.longitude} ) ) + sin ( radians(  ${body.latitude} ) ) * sin( radians( LATITUDE ) )
+		)
+		) AS distance
+		FROM
+		YJZH_PREVENTION_DANGER d
+		)t
+		<where>
+			<include refid="YjzhPreventionDangerWhereSQL" />
+		</where>
+		<!-- 通用查询排序 -->
+		ORDER BY CREATED DESC
+	</select>
+	<select id="countYjzhPreventionDangerByEvent" resultType="Integer">
+		SELECT count(*) total from
+		(SELECT
+		d.*,
+		(
+		6371 * acos (
+		cos ( radians( ${body.latitude}) ) * cos( radians( LATITUDE ) ) * cos( radians( LONGITUDE ) - radians( ${body.longitude} ) ) + sin ( radians(  ${body.latitude} ) ) * sin( radians( LATITUDE ) )
+		)
+		) AS distance
+		FROM
+		YJZH_PREVENTION_DANGER d
+		)t
+		<where>
+			<include refid="YjzhPreventionDangerWhereSQL" />
+		</where>
+	</select>
+
+
+
+
+
+
+
+
+	<select id="findYjzhPreventionDanger" resultMap="YjzhPreventionDangerResultMap">
+		SELECT 
+			<include refid="YjzhPreventionDangerSQL" />
+		FROM  YJZH_PREVENTION_DANGER 
+		<where>
+			<include refid="YjzhPreventionDangerWhereSQL" />
+		</where>
+		<!-- 通用查询排序 -->
+		ORDER BY ${sortName} ${sortOrder}
+	</select>
+	
+	<!-- YJZH_PREVENTION_DANGER 信息查询语句 -->
+	<select id="findByIdYjzhPreventionDanger" resultMap="YjzhPreventionDangerResultMap">
+		SELECT 
+			<include refid="YjzhPreventionDangerSQL" />
+		FROM  YJZH_PREVENTION_DANGER
+		<where> 
+			SID = #{sid}
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</select>
+	<select id="findByIdsYjzhPreventionDanger" resultMap="YjzhPreventionDangerResultMap">
+		SELECT 
+			<include refid="YjzhPreventionDangerSQL" />
+		FROM  YJZH_PREVENTION_DANGER
+		<where> 
+			SID IN
+			<foreach collection="ids" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</select>
+	
+	<!-- YJZH_PREVENTION_DANGER 数量查询SQL -->
+	<select id="countYjzhPreventionDanger" resultType="Integer">
+		SELECT count(*) total FROM  YJZH_PREVENTION_DANGER
+		<where>
+			<include refid="YjzhPreventionDangerWhereSQL" />
+		</where>
+	</select>
+  
+  	<!-- 新增YJZH_PREVENTION_DANGER 信息 -->
+	<insert id="addYjzhPreventionDanger" parameterType="YjzhPreventionDanger">
+		INSERT INTO YJZH_PREVENTION_DANGER <include refid="YjzhPreventionDangerInsertSQL"/>
+		VALUES <include refid="YjzhPreventionDangerParamsSQL"/>
+	</insert>
+	
+	<!-- 修改YJZH_PREVENTION_DANGER 信息 -->
+	<update id="updateYjzhPreventionDanger" parameterType="YjzhPreventionDanger">
+		UPDATE YJZH_PREVENTION_DANGER
+		SET    <include refid="YjzhPreventionDangerUpdateSQL" />
+		<where>
+			SID=#{sid}
+			<if test="tenantId != null">
+				AND	TENANT_ID=#{tenantId}
+			</if>
+		</where>  
+	</update>
+	
+	<!-- 删除YJZH_PREVENTION_DANGER 信息 -->
+	<update id="deleteYjzhPreventionDanger" parameterType="YjzhPreventionDanger">
+		DELETE FROM YJZH_PREVENTION_DANGER WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除YJZH_PREVENTION_DANGER 信息 -->
+	<update id="deleteByIdYjzhPreventionDanger" >
+		DELETE FROM YJZH_PREVENTION_DANGER
+		<where> 
+			SID IN
+			<foreach collection="ids" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</update>
+	
+	<!-- ======================DML方言配置====================== -->
+	<!-- xxx 信息查询语句,后缀必须(mysql|oracle...) -->
+</mapper>

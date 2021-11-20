@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"     
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.aifa.mins.event.model.yjzh.YjzhContingencyplansDisposeDespicable">
+
+	<!-- =====================Field字段配置===================== -->
+	<!-- YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE 字段 -->
+	<sql id="YjzhContingencyplansDisposeDespicableSQL">
+		SID ,
+		TENANT_ID ,
+		PLAN_ID ,
+		EVENT_ID ,
+		EVENT_STATUS ,
+		DISPOSE_ID ,
+		TYPE ,
+		STATUS ,
+		CONTENT ,
+		EXECUTOR_ID ,
+		EXECUTOR ,
+		EXECUTOR_TEL ,
+		EXECUTOR_POSITION ,
+		SENDER_ORG ,
+		SENDER ,
+		TIME_LIMIT ,
+		CREATED_BY ,
+		CREATED ,
+		LAST_UPDATED_BY ,
+		LAST_UPDATED ,
+		EXECUTOR_TYPE ,
+		TITLE 
+	</sql>
+	
+	<!-- 新增YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE 信息字段 -->
+  	<sql id="YjzhContingencyplansDisposeDespicableInsertSQL">
+	    (
+			SID ,
+			TENANT_ID ,
+			PLAN_ID ,
+			EVENT_ID ,
+			EVENT_STATUS ,
+			DISPOSE_ID ,
+			TYPE ,
+			STATUS ,
+			CONTENT ,
+			EXECUTOR_ID ,
+			EXECUTOR ,
+			EXECUTOR_TEL ,
+			EXECUTOR_POSITION ,
+			SENDER_ORG ,
+			SENDER ,
+			TIME_LIMIT ,
+			CREATED_BY ,
+			CREATED ,
+			LAST_UPDATED_BY ,
+			LAST_UPDATED ,
+			EXECUTOR_TYPE ,
+			TITLE 
+	    )
+  	</sql>
+  
+    <!-- 新增YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE 传入参数值 -->
+    <sql id="YjzhContingencyplansDisposeDespicableParamsSQL">
+	     (
+			#{sid,jdbcType=BIGINT} ,
+			#{tenantId,jdbcType=BIGINT} ,
+			#{planId,jdbcType=BIGINT} ,
+			#{eventId,jdbcType=VARCHAR} ,
+			#{eventStatus,jdbcType=VARCHAR} ,
+			#{disposeId,jdbcType=BIGINT} ,
+			#{type,jdbcType=VARCHAR} ,
+			#{status,jdbcType=VARCHAR} ,
+			#{content,jdbcType=VARCHAR} ,
+			#{executorId,jdbcType=BIGINT} ,
+			#{executor,jdbcType=VARCHAR} ,
+			#{executorTel,jdbcType=VARCHAR} ,
+			#{executorPosition,jdbcType=VARCHAR} ,
+			#{senderOrg,jdbcType=VARCHAR} ,
+			#{sender,jdbcType=VARCHAR} ,
+			#{timeLimit,jdbcType=TIMESTAMP} ,
+			#{createdBy,jdbcType=BIGINT} ,
+			#{created,jdbcType=TIMESTAMP} ,
+			#{lastUpdatedBy,jdbcType=BIGINT} ,
+			#{lastUpdated,jdbcType=TIMESTAMP} ,
+			#{executorType,jdbcType=VARCHAR} ,
+			#{title,jdbcType=VARCHAR} 
+	     )
+    </sql>
+  
+	<!-- 修改YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE属性字段 -->
+	<sql id="YjzhContingencyplansDisposeDespicableUpdateSQL">
+		<if test="fields.get('tenantId')!=null">
+			TENANT_ID = #{data.tenantId,jdbcType=BIGINT},
+		</if>
+		<if test="fields.get('planId')!=null">
+			PLAN_ID = #{data.planId,jdbcType=BIGINT},
+		</if>
+		<if test="fields.get('eventId')!=null">
+			EVENT_ID = #{data.eventId,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('eventStatus')!=null">
+			EVENT_STATUS = #{data.eventStatus,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('disposeId')!=null">
+			DISPOSE_ID = #{data.disposeId,jdbcType=BIGINT},
+		</if>
+		<if test="fields.get('type')!=null">
+			TYPE = #{data.type,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('status')!=null">
+			STATUS = #{data.status,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('content')!=null">
+			CONTENT = #{data.content,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('executorId')!=null">
+			EXECUTOR_ID = #{data.executorId,jdbcType=BIGINT},
+		</if>
+		<if test="fields.get('executor')!=null">
+			EXECUTOR = #{data.executor,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('executorTel')!=null">
+			EXECUTOR_TEL = #{data.executorTel,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('executorPosition')!=null">
+			EXECUTOR_POSITION = #{data.executorPosition,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('senderOrg')!=null">
+			SENDER_ORG = #{data.senderOrg,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('sender')!=null">
+			SENDER = #{data.sender,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('timeLimit')!=null">
+			TIME_LIMIT = #{data.timeLimit,jdbcType=TIMESTAMP},
+		</if>
+		<if test="fields.get('executorType')!=null">
+			EXECUTOR_TYPE = #{data.executorType,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('title')!=null">
+			TITLE = #{data.title,jdbcType=VARCHAR},
+		</if>
+			LAST_UPDATED = #{data.lastUpdated,jdbcType=TIMESTAMP} ,
+			LAST_UPDATED_BY = #{data.lastUpdatedBy,jdbcType=BIGINT} 
+	</sql>
+	
+	<!-- YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE 查询(包括条件按查询) -->
+	<sql id="YjzhContingencyplansDisposeDespicableWhereSQL">
+	 		<if test="body.sid != null">
+	 			and SID = #{body.sid}
+	 		</if>
+	 		<if test="body.tenantId != null">
+	 			and TENANT_ID = #{body.tenantId}
+	 		</if>
+	 		<if test="body.planId != null">
+	 			and PLAN_ID = #{body.planId}
+	 		</if>
+	 		<if test="body.eventId != null and body.eventId != ''">
+	 			and EVENT_ID = #{body.eventId}
+	 		</if>
+	 		<if test="body.eventStatus != null and body.eventStatus != ''">
+	 			and EVENT_STATUS = #{body.eventStatus}
+	 		</if>
+	 		<if test="body.disposeId != null">
+	 			and DISPOSE_ID = #{body.disposeId}
+	 		</if>
+	 		<if test="body.type != null and body.type != ''">
+	 			and TYPE = #{body.type}
+	 		</if>
+	 		<if test="body.status != null and body.status != ''">
+	 			and STATUS = #{body.status}
+	 		</if>
+	 		<if test="body.content != null and body.content != ''">
+	 			and CONTENT = #{body.content}
+	 		</if>
+	 		<if test="body.executorId != null">
+	 			and EXECUTOR_ID = #{body.executorId}
+	 		</if>
+	 		<if test="body.executor != null and body.executor != ''">
+	 			and EXECUTOR = #{body.executor}
+	 		</if>
+	 		<if test="body.executorTel != null and body.executorTel != ''">
+	 			and EXECUTOR_TEL = #{body.executorTel}
+	 		</if>
+	 		<if test="body.executorPosition != null and body.executorPosition != ''">
+	 			and EXECUTOR_POSITION = #{body.executorPosition}
+	 		</if>
+	 		<if test="body.senderOrg != null and body.senderOrg != ''">
+	 			and SENDER_ORG = #{body.senderOrg}
+	 		</if>
+	 		<if test="body.sender != null and body.sender != ''">
+	 			and SENDER = #{body.sender}
+	 		</if>
+	 		<if test="body.timeLimit != null">
+	 			and TIME_LIMIT = #{body.timeLimit}
+	 		</if>
+	 		<if test="body.executorType != null and body.executorType != ''">
+	 			and EXECUTOR_TYPE = #{body.executorType}
+	 		</if>
+	 		<if test="body.title != null and body.title != ''">
+	 			and TITLE = #{body.title}
+	 		</if>
+	</sql>
+
+	<!-- YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE 表关联项目信息表结果集属性声明 -->
+	<resultMap type="YjzhContingencyplansDisposeDespicable" id="YjzhContingencyplansDisposeDespicableResultMap">
+		<id column="SID" property="sid" />
+			<result property="tenantId" column="TENANT_ID"/>
+			<result property="planId" column="PLAN_ID"/>
+			<result property="eventId" column="EVENT_ID"/>
+			<result property="eventStatus" column="EVENT_STATUS"/>
+			<result property="disposeId" column="DISPOSE_ID"/>
+			<result property="type" column="TYPE"/>
+			<result property="status" column="STATUS"/>
+			<result property="content" column="CONTENT"/>
+			<result property="executorId" column="EXECUTOR_ID"/>
+			<result property="executor" column="EXECUTOR"/>
+			<result property="executorTel" column="EXECUTOR_TEL"/>
+			<result property="executorPosition" column="EXECUTOR_POSITION"/>
+			<result property="senderOrg" column="SENDER_ORG"/>
+			<result property="sender" column="SENDER"/>
+			<result property="timeLimit" column="TIME_LIMIT"/>
+			<result property="createdBy" column="CREATED_BY"/>
+			<result property="created" column="CREATED"/>
+			<result property="lastUpdatedBy" column="LAST_UPDATED_BY"/>
+			<result property="lastUpdated" column="LAST_UPDATED"/>
+			<result property="executorType" column="EXECUTOR_TYPE"/>
+			<result property="title" column="TITLE"/>
+	</resultMap>
+
+	<!-- ======================DML语句配置====================== -->
+	<!-- YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE 信息查询语句 -->
+	<select id="findYjzhContingencyplansDisposeDespicable" resultMap="YjzhContingencyplansDisposeDespicableResultMap">
+		SELECT 
+			<include refid="YjzhContingencyplansDisposeDespicableSQL" />
+		FROM  YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE 
+		<where>
+			<include refid="YjzhContingencyplansDisposeDespicableWhereSQL" />
+		</where>
+		<!-- 通用查询排序 -->
+		ORDER BY ${sortName} ${sortOrder}
+	</select>
+	
+	<!-- YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE 信息查询语句 -->
+	<select id="findByIdYjzhContingencyplansDisposeDespicable" resultMap="YjzhContingencyplansDisposeDespicableResultMap">
+		SELECT 
+			<include refid="YjzhContingencyplansDisposeDespicableSQL" />
+		FROM  YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE
+		<where> 
+			SID = #{sid}
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</select>
+	<select id="findByIdsYjzhContingencyplansDisposeDespicable" resultMap="YjzhContingencyplansDisposeDespicableResultMap">
+		SELECT 
+			<include refid="YjzhContingencyplansDisposeDespicableSQL" />
+		FROM  YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE
+		<where> 
+			SID IN
+			<foreach collection="ids" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</select>
+	
+	<!-- YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE 数量查询SQL -->
+	<select id="countYjzhContingencyplansDisposeDespicable" resultType="Integer">
+		SELECT count(*) total FROM  YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE
+		<where>
+			<include refid="YjzhContingencyplansDisposeDespicableWhereSQL" />
+		</where>
+	</select>
+  
+  	<!-- 新增YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE 信息 -->
+	<insert id="addYjzhContingencyplansDisposeDespicable" parameterType="YjzhContingencyplansDisposeDespicable">
+		INSERT INTO YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE <include refid="YjzhContingencyplansDisposeDespicableInsertSQL"/>
+		VALUES <include refid="YjzhContingencyplansDisposeDespicableParamsSQL"/>
+	</insert>
+	
+	<!-- 修改YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE 信息 -->
+	<update id="updateYjzhContingencyplansDisposeDespicable" parameterType="YjzhContingencyplansDisposeDespicable">
+		UPDATE YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE
+		SET    <include refid="YjzhContingencyplansDisposeDespicableUpdateSQL" />
+		<where>
+			SID=#{sid}
+			<if test="tenantId != null">
+				AND	TENANT_ID=#{tenantId}
+			</if>
+		</where>  
+	</update>
+	
+	<!-- 删除YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE 信息 -->
+	<update id="deleteYjzhContingencyplansDisposeDespicable" parameterType="YjzhContingencyplansDisposeDespicable">
+		DELETE FROM YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE 信息 -->
+	<update id="deleteByIdYjzhContingencyplansDisposeDespicable" >
+		DELETE FROM YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE
+		<where> 
+			SID IN
+			<foreach collection="ids" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</update>
+	
+	<!-- ======================DML方言配置====================== -->
+	<!-- xxx 信息查询语句,后缀必须(mysql|oracle...) -->
+</mapper>

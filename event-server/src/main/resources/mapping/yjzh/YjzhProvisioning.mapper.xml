@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"     
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.aifa.mins.event.model.yjzh.YjzhProvisioning">
+
+	<!-- =====================Field字段配置===================== -->
+	<!-- YJZH_PROVISIONING 字段 -->
+	<sql id="YjzhProvisioningSQL">
+		SID ,
+		TENANT_ID ,
+		NAME ,
+		UNIT_MEASURE ,
+		DEMAND_QUANTITY ,
+		TRANSFERRED_QUANTITY ,
+		GAPS_NUMBER ,
+		DESTINATION ,
+		DEPLOYMENT_TIME ,
+		CREATED_BY ,
+		CREATED ,
+		LAST_UPDATED_BY ,
+		LAST_UPDATED ,
+		EVENT_ID 
+	</sql>
+	
+	<!-- 新增YJZH_PROVISIONING 信息字段 -->
+  	<sql id="YjzhProvisioningInsertSQL">
+	    (
+			SID ,
+			TENANT_ID ,
+			NAME ,
+			UNIT_MEASURE ,
+			DEMAND_QUANTITY ,
+			TRANSFERRED_QUANTITY ,
+			GAPS_NUMBER ,
+			DESTINATION ,
+			DEPLOYMENT_TIME ,
+			CREATED_BY ,
+			CREATED ,
+			LAST_UPDATED_BY ,
+			LAST_UPDATED ,
+			EVENT_ID 
+	    )
+  	</sql>
+  
+    <!-- 新增YJZH_PROVISIONING 传入参数值 -->
+    <sql id="YjzhProvisioningParamsSQL">
+	     (
+			#{sid,jdbcType=BIGINT} ,
+			#{tenantId,jdbcType=BIGINT} ,
+			#{name,jdbcType=VARCHAR} ,
+			#{unitMeasure,jdbcType=VARCHAR} ,
+			#{demandQuantity,jdbcType=DECIMAL} ,
+			#{transferredQuantity,jdbcType=DECIMAL} ,
+			#{gapsNumber,jdbcType=DECIMAL} ,
+			#{destination,jdbcType=VARCHAR} ,
+			#{deploymentTime,jdbcType=TIMESTAMP} ,
+			#{createdBy,jdbcType=BIGINT} ,
+			#{created,jdbcType=TIMESTAMP} ,
+			#{lastUpdatedBy,jdbcType=BIGINT} ,
+			#{lastUpdated,jdbcType=TIMESTAMP} ,
+			#{eventId,jdbcType=VARCHAR} 
+	     )
+    </sql>
+  
+	<!-- 修改YJZH_PROVISIONING属性字段 -->
+	<sql id="YjzhProvisioningUpdateSQL">
+		<if test="fields.get('tenantId')!=null">
+			TENANT_ID = #{data.tenantId,jdbcType=BIGINT},
+		</if>
+		<if test="fields.get('name')!=null">
+			NAME = #{data.name,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('unitMeasure')!=null">
+			UNIT_MEASURE = #{data.unitMeasure,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('demandQuantity')!=null">
+			DEMAND_QUANTITY = #{data.demandQuantity,jdbcType=DECIMAL},
+		</if>
+		<if test="fields.get('transferredQuantity')!=null">
+			TRANSFERRED_QUANTITY = #{data.transferredQuantity,jdbcType=DECIMAL},
+		</if>
+		<if test="fields.get('gapsNumber')!=null">
+			GAPS_NUMBER = #{data.gapsNumber,jdbcType=DECIMAL},
+		</if>
+		<if test="fields.get('destination')!=null">
+			DESTINATION = #{data.destination,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('deploymentTime')!=null">
+			DEPLOYMENT_TIME = #{data.deploymentTime,jdbcType=TIMESTAMP},
+		</if>
+		<if test="fields.get('eventId')!=null">
+			EVENT_ID = #{data.eventId,jdbcType=VARCHAR},
+		</if>
+			LAST_UPDATED = #{data.lastUpdated,jdbcType=TIMESTAMP} ,
+			LAST_UPDATED_BY = #{data.lastUpdatedBy,jdbcType=BIGINT} 
+	</sql>
+	
+	<!-- YJZH_PROVISIONING 查询(包括条件按查询) -->
+	<sql id="YjzhProvisioningWhereSQL">
+	 		<if test="body.sid != null">
+	 			and SID = #{body.sid}
+	 		</if>
+	 		<if test="body.tenantId != null">
+	 			and TENANT_ID = #{body.tenantId}
+	 		</if>
+	 		<if test="body.name != null and body.name != ''">
+	 			and NAME = #{body.name}
+	 		</if>
+	 		<if test="body.unitMeasure != null and body.unitMeasure != ''">
+	 			and UNIT_MEASURE = #{body.unitMeasure}
+	 		</if>
+	 		<if test="body.demandQuantity != null">
+	 			and DEMAND_QUANTITY = #{body.demandQuantity}
+	 		</if>
+	 		<if test="body.transferredQuantity != null">
+	 			and TRANSFERRED_QUANTITY = #{body.transferredQuantity}
+	 		</if>
+	 		<if test="body.gapsNumber != null">
+	 			and GAPS_NUMBER = #{body.gapsNumber}
+	 		</if>
+	 		<if test="body.destination != null and body.destination != ''">
+	 			and DESTINATION = #{body.destination}
+	 		</if>
+	 		<if test="body.deploymentTime != null">
+	 			and DEPLOYMENT_TIME = #{body.deploymentTime}
+	 		</if>
+	 		<if test="body.eventId != null and body.eventId != ''">
+	 			and EVENT_ID = #{body.eventId}
+	 		</if>
+	</sql>
+
+	<!-- YJZH_PROVISIONING 表关联项目信息表结果集属性声明 -->
+	<resultMap type="YjzhProvisioning" id="YjzhProvisioningResultMap">
+		<id column="SID" property="sid" />
+			<result property="tenantId" column="TENANT_ID"/>
+			<result property="name" column="NAME"/>
+			<result property="unitMeasure" column="UNIT_MEASURE"/>
+			<result property="demandQuantity" column="DEMAND_QUANTITY"/>
+			<result property="transferredQuantity" column="TRANSFERRED_QUANTITY"/>
+			<result property="gapsNumber" column="GAPS_NUMBER"/>
+			<result property="destination" column="DESTINATION"/>
+			<result property="deploymentTime" column="DEPLOYMENT_TIME"/>
+			<result property="createdBy" column="CREATED_BY"/>
+			<result property="created" column="CREATED"/>
+			<result property="lastUpdatedBy" column="LAST_UPDATED_BY"/>
+			<result property="lastUpdated" column="LAST_UPDATED"/>
+			<result property="eventId" column="EVENT_ID"/>
+	</resultMap>
+
+	<!-- ======================DML语句配置====================== -->
+	<!-- YJZH_PROVISIONING 信息查询语句 -->
+	<select id="findYjzhProvisioning" resultMap="YjzhProvisioningResultMap">
+		SELECT 
+			<include refid="YjzhProvisioningSQL" />
+		FROM  YJZH_PROVISIONING 
+		<where>
+			<include refid="YjzhProvisioningWhereSQL" />
+		</where>
+		<!-- 通用查询排序 -->
+		ORDER BY ${sortName} ${sortOrder}
+	</select>
+	
+	<!-- YJZH_PROVISIONING 信息查询语句 -->
+	<select id="findByIdYjzhProvisioning" resultMap="YjzhProvisioningResultMap">
+		SELECT 
+			<include refid="YjzhProvisioningSQL" />
+		FROM  YJZH_PROVISIONING
+		<where> 
+			SID = #{sid}
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</select>
+	<select id="findByIdsYjzhProvisioning" resultMap="YjzhProvisioningResultMap">
+		SELECT 
+			<include refid="YjzhProvisioningSQL" />
+		FROM  YJZH_PROVISIONING
+		<where> 
+			SID IN
+			<foreach collection="ids" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</select>
+	
+	<!-- YJZH_PROVISIONING 数量查询SQL -->
+	<select id="countYjzhProvisioning" resultType="Integer">
+		SELECT count(*) total FROM  YJZH_PROVISIONING
+		<where>
+			<include refid="YjzhProvisioningWhereSQL" />
+		</where>
+	</select>
+  
+  	<!-- 新增YJZH_PROVISIONING 信息 -->
+	<insert id="addYjzhProvisioning" parameterType="YjzhProvisioning">
+		INSERT INTO YJZH_PROVISIONING <include refid="YjzhProvisioningInsertSQL"/>
+		VALUES <include refid="YjzhProvisioningParamsSQL"/>
+	</insert>
+	
+	<!-- 修改YJZH_PROVISIONING 信息 -->
+	<update id="updateYjzhProvisioning" parameterType="YjzhProvisioning">
+		UPDATE YJZH_PROVISIONING
+		SET    <include refid="YjzhProvisioningUpdateSQL" />
+		<where>
+			SID=#{sid}
+			<if test="tenantId != null">
+				AND	TENANT_ID=#{tenantId}
+			</if>
+		</where>  
+	</update>
+	
+	<!-- 删除YJZH_PROVISIONING 信息 -->
+	<update id="deleteYjzhProvisioning" parameterType="YjzhProvisioning">
+		DELETE FROM YJZH_PROVISIONING WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除YJZH_PROVISIONING 信息 -->
+	<update id="deleteByIdYjzhProvisioning" >
+		DELETE FROM YJZH_PROVISIONING
+		<where> 
+			SID IN
+			<foreach collection="ids" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</update>
+	
+	<!-- ======================DML方言配置====================== -->
+	<!-- xxx 信息查询语句,后缀必须(mysql|oracle...) -->
+</mapper>

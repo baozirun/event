@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"     
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.aifa.mins.event.model.yjzh.YjzhContingencyplansDisposetaskResult">
+
+	<!-- =====================Field字段配置===================== -->
+	<!-- YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT 字段 -->
+	<sql id="YjzhContingencyplansDisposetaskResultSQL">
+		SID ,
+		TENANT_ID ,
+		DESPICABLE_ID ,
+		CONTENT ,
+		CREATED_BY ,
+		CREATED ,
+		LAST_UPDATED_BY ,
+		LAST_UPDATED ,
+		EVENT_ID 
+	</sql>
+	
+	<!-- 新增YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT 信息字段 -->
+  	<sql id="YjzhContingencyplansDisposetaskResultInsertSQL">
+	    (
+			SID ,
+			TENANT_ID ,
+			DESPICABLE_ID ,
+			CONTENT ,
+			CREATED_BY ,
+			CREATED ,
+			LAST_UPDATED_BY ,
+			LAST_UPDATED ,
+			EVENT_ID 
+	    )
+  	</sql>
+  
+    <!-- 新增YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT 传入参数值 -->
+    <sql id="YjzhContingencyplansDisposetaskResultParamsSQL">
+	     (
+			#{sid,jdbcType=BIGINT} ,
+			#{tenantId,jdbcType=BIGINT} ,
+			#{despicableId,jdbcType=BIGINT} ,
+			#{content,jdbcType=VARCHAR} ,
+			#{createdBy,jdbcType=BIGINT} ,
+			#{created,jdbcType=TIMESTAMP} ,
+			#{lastUpdatedBy,jdbcType=BIGINT} ,
+			#{lastUpdated,jdbcType=TIMESTAMP} ,
+			#{eventId,jdbcType=VARCHAR} 
+	     )
+    </sql>
+  
+	<!-- 修改YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT属性字段 -->
+	<sql id="YjzhContingencyplansDisposetaskResultUpdateSQL">
+		<if test="fields.get('tenantId')!=null">
+			TENANT_ID = #{data.tenantId,jdbcType=BIGINT},
+		</if>
+		<if test="fields.get('despicableId')!=null">
+			DESPICABLE_ID = #{data.despicableId,jdbcType=BIGINT},
+		</if>
+		<if test="fields.get('content')!=null">
+			CONTENT = #{data.content,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('eventId')!=null">
+			EVENT_ID = #{data.eventId,jdbcType=VARCHAR},
+		</if>
+			LAST_UPDATED = #{data.lastUpdated,jdbcType=TIMESTAMP} ,
+			LAST_UPDATED_BY = #{data.lastUpdatedBy,jdbcType=BIGINT} 
+	</sql>
+	
+	<!-- YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT 查询(包括条件按查询) -->
+	<sql id="YjzhContingencyplansDisposetaskResultWhereSQL">
+	 		<if test="body.sid != null">
+	 			and SID = #{body.sid}
+	 		</if>
+	 		<if test="body.tenantId != null">
+	 			and TENANT_ID = #{body.tenantId}
+	 		</if>
+	 		<if test="body.despicableId != null">
+	 			and DESPICABLE_ID = #{body.despicableId}
+	 		</if>
+	 		<if test="body.content != null and body.content != ''">
+	 			and CONTENT = #{body.content}
+	 		</if>
+	 		<if test="body.eventId != null and body.eventId != ''">
+	 			and EVENT_ID = #{body.eventId}
+	 		</if>
+	</sql>
+
+	<!-- YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT 表关联项目信息表结果集属性声明 -->
+	<resultMap type="YjzhContingencyplansDisposetaskResult" id="YjzhContingencyplansDisposetaskResultResultMap">
+		<id column="SID" property="sid" />
+			<result property="tenantId" column="TENANT_ID"/>
+			<result property="despicableId" column="DESPICABLE_ID"/>
+			<result property="content" column="CONTENT"/>
+			<result property="createdBy" column="CREATED_BY"/>
+			<result property="created" column="CREATED"/>
+			<result property="lastUpdatedBy" column="LAST_UPDATED_BY"/>
+			<result property="lastUpdated" column="LAST_UPDATED"/>
+			<result property="eventId" column="EVENT_ID"/>
+	</resultMap>
+
+	<!-- ======================DML语句配置====================== -->
+	<!-- YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT 信息查询语句 -->
+	<select id="findYjzhContingencyplansDisposetaskResult" resultMap="YjzhContingencyplansDisposetaskResultResultMap">
+		SELECT 
+			<include refid="YjzhContingencyplansDisposetaskResultSQL" />
+		FROM  YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT 
+		<where>
+			<include refid="YjzhContingencyplansDisposetaskResultWhereSQL" />
+		</where>
+		<!-- 通用查询排序 -->
+		ORDER BY ${sortName} ${sortOrder}
+	</select>
+	
+	<!-- YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT 信息查询语句 -->
+	<select id="findByIdYjzhContingencyplansDisposetaskResult" resultMap="YjzhContingencyplansDisposetaskResultResultMap">
+		SELECT 
+			<include refid="YjzhContingencyplansDisposetaskResultSQL" />
+		FROM  YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT
+		<where> 
+			SID = #{sid}
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</select>
+	<select id="findByIdsYjzhContingencyplansDisposetaskResult" resultMap="YjzhContingencyplansDisposetaskResultResultMap">
+		SELECT 
+			<include refid="YjzhContingencyplansDisposetaskResultSQL" />
+		FROM  YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT
+		<where> 
+			SID IN
+			<foreach collection="ids" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</select>
+	
+	<!-- YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT 数量查询SQL -->
+	<select id="countYjzhContingencyplansDisposetaskResult" resultType="Integer">
+		SELECT count(*) total FROM  YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT
+		<where>
+			<include refid="YjzhContingencyplansDisposetaskResultWhereSQL" />
+		</where>
+	</select>
+  
+  	<!-- 新增YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT 信息 -->
+	<insert id="addYjzhContingencyplansDisposetaskResult" parameterType="YjzhContingencyplansDisposetaskResult">
+		INSERT INTO YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT <include refid="YjzhContingencyplansDisposetaskResultInsertSQL"/>
+		VALUES <include refid="YjzhContingencyplansDisposetaskResultParamsSQL"/>
+	</insert>
+	
+	<!-- 修改YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT 信息 -->
+	<update id="updateYjzhContingencyplansDisposetaskResult" parameterType="YjzhContingencyplansDisposetaskResult">
+		UPDATE YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT
+		SET    <include refid="YjzhContingencyplansDisposetaskResultUpdateSQL" />
+		<where>
+			SID=#{sid}
+			<if test="tenantId != null">
+				AND	TENANT_ID=#{tenantId}
+			</if>
+		</where>  
+	</update>
+	
+	<!-- 删除YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT 信息 -->
+	<update id="deleteYjzhContingencyplansDisposetaskResult" parameterType="YjzhContingencyplansDisposetaskResult">
+		DELETE FROM YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT 信息 -->
+	<update id="deleteByIdYjzhContingencyplansDisposetaskResult" >
+		DELETE FROM YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT
+		<where> 
+			SID IN
+			<foreach collection="ids" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</update>
+	
+	<!-- ======================DML方言配置====================== -->
+	<!-- xxx 信息查询语句,后缀必须(mysql|oracle...) -->
+</mapper>
