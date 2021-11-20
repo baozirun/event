@@ -67,5 +67,8 @@ public class YjzhContingencyplansDisposetaskResult extends Pojo{
 	 */
 	@ApiModelProperty("主键集合")
 	private List<Long> ids;
+
+	@ApiModelProperty("描述")
+	private String title;
 	
 }

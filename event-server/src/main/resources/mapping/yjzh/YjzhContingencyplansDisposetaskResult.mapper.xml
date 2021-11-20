@@ -97,6 +97,15 @@
 			<result property="eventId" column="EVENT_ID"/>
 	</resultMap>
 
+	<resultMap type="YjzhPlansDisposetaskResultDto" id="YjzhPlansDisposetaskResultResultMap">
+		<id column="SID" property="sid" />
+		<result property="eventId" column="EVENT_ID"/>
+		<result property="content" column="CONTENT"/>
+		<result property="tel" column="TEL"/>
+		<result property="name" column="NAME"/>
+		<result property="type" column="TYPE"/>
+	</resultMap>
+
 	<!-- ======================DML语句配置====================== -->
 	<!-- YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT 信息查询语句 -->
 	<select id="findYjzhContingencyplansDisposetaskResult" resultMap="YjzhContingencyplansDisposetaskResultResultMap">
@@ -190,6 +199,42 @@
 	 		</if>
 		</where>
 	</update>
+
+
+	<select id="findYjzhPlansDisposetaskResult" resultMap="YjzhPlansDisposetaskResultResultMap">
+		SELECT
+		*
+		FROM
+		(SELECT
+		R.SID,R.EVENT_ID,R.CONTENT,R.CREATED,D.EXECUTOR as NAME,D.EXECUTOR_TEL AS TEL,'2' as TYPE
+		FROM  YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT R
+		LEFT JOIN YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE D ON D.SID=R.DESPICABLE_ID
+		WHERE D.EVENT_ID=#{body.eventId}
+
+		UNION ALL
+
+		SELECT
+		SID,EVENT_ID,CONTENT,CREATED,SENDER AS NAME,'' AS TEL,'1' AS TYPE
+		FROM  YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE D
+		WHERE EVENT_ID = #{body.eventId}) T ORDER BY CREATED DESC
+	</select>
+	<select id="countFindYjzhPlansDisposetaskResult"  resultType="Integer">
+		SELECT
+		count(*)
+		FROM
+		(SELECT
+		R.SID,R.EVENT_ID,R.CONTENT,R.CREATED,D.EXECUTOR as NAME,D.EXECUTOR_TEL AS TEL,'1' as TYPE
+		FROM  YJZH_CONTINGENCYPLANS_DISPOSETASK_RESULT R
+		LEFT JOIN YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE D ON D.SID=R.DESPICABLE_ID
+		WHERE D.EVENT_ID=#{body.eventId}
+
+		UNION ALL
+
+		SELECT
+		SID,EVENT_ID,CONTENT,CREATED,SENDER AS NAME,'' AS TEL,'2' AS TYPE
+		FROM  YJZH_CONTINGENCYPLANS_DISPOSE_DESPICABLE D
+		WHERE EVENT_ID = #{body.eventId}) T
+	</select>
 	
 	<!-- ======================DML方言配置====================== -->
 	<!-- xxx 信息查询语句,后缀必须(mysql|oracle...) -->

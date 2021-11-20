@@ -124,8 +124,20 @@
 			<version>${lombok.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		
-	</dependencies>
+
+		<!--汉字转换拼音工具依赖包-->
+		<dependency>
+			<groupId>com.belerweb</groupId>
+			<artifactId>pinyin4j</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+        <dependency>
+            <groupId>com.aifa.mins</groupId>
+            <artifactId>system-api</artifactId>
+            <version>2.5.2-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
 
 
 </project>

@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"     
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.aifa.mins.yjzh.contingencyplans.model.DrpPlanBasicInformation">
+
+	<!-- =====================Field字段配置===================== -->
+	<!--2021-10-21 16:49:49 龙跃云修改了planClassification->postDisposal的字段
+		2021-10-27 14:06:11 新增 LOCATION HEADQUARTERS_OFFICE字段
+	-->
+	<!-- DRP_PLAN_BASIC_INFORMATION 字段 -->
+
+	<sql id="DrpPlanBasicInformationSQL">
+		SID ,
+		USER_ID ,
+		TENANT_ID ,
+		ORG_ID ,
+		PLAN_TEMPLATE_ID ,
+		PLAN_NUMBER ,
+		PLAN_NAME ,
+		VERSION_NUMBER ,
+		PLAN_CATEGORY ,
+		SCOPE ,
+		EVENT_LEVEL ,
+		EVENT_TYPE ,
+		PLAN_THE ,
+		PLAN_STATUS ,
+		PLAN_CLASSIFICATION,
+		DOCUMENT_NUMBER,
+		PREPARATION_DEPARTMENT,
+		ISSUING_DEPARTMENT,
+		ISSUE_TIME,
+		EARLYWARNING_REPORT,
+		EMERGENCY_SUPPORT,
+		POST_DISPOSAL,
+
+		LOCATION,
+		HEADQUARTERS_OFFICE,
+
+		AUDIT_USER_ID ,
+		AUDIT_TIME ,
+		RELEASE_TIME ,
+		IS_DELETE ,
+		FLOW_MODEL_ID ,
+		MODEL_JSON ,
+		CREATED ,
+		CREATED_BY ,
+		LAST_UPDATED ,
+		LAST_UPDATED_BY 
+	</sql>
+
+	<sql id="DrpPlanBasicInformationHisSQL">
+		SID ,
+		USER_ID ,
+		TENANT_ID ,
+		ORG_ID ,
+		PLAN_TEMPLATE_ID ,
+		PLAN_NUMBER ,
+		PLAN_NAME ,
+		VERSION_NUMBER ,
+		PLAN_CATEGORY ,
+		SCOPE ,
+		EVENT_LEVEL ,
+		EVENT_TYPE ,
+		PLAN_THE ,
+		PLAN_STATUS ,
+		PLAN_CLASSIFICATION,
+		DOCUMENT_NUMBER,
+		PREPARATION_DEPARTMENT,
+		ISSUING_DEPARTMENT,
+		ISSUE_TIME,
+		EARLYWARNING_REPORT,
+		EMERGENCY_SUPPORT,
+		POST_DISPOSAL,
+
+		LOCATION,
+		HEADQUARTERS_OFFICE,
+
+		AUDIT_USER_ID ,
+		AUDIT_TIME ,
+		RELEASE_TIME ,
+		IS_DELETE ,
+		FLOW_MODEL_ID ,
+		MODEL_JSON ,
+		CREATED ,
+		CREATED_BY ,
+		LAST_UPDATED ,
+		LAST_UPDATED_BY
+	</sql>
+	
+	<!-- 新增DRP_PLAN_BASIC_INFORMATION 信息字段 -->
+  	<sql id="DrpPlanBasicInformationInsertSQL">
+	    (
+			SID ,
+			USER_ID ,
+			TENANT_ID ,
+			ORG_ID ,
+			PLAN_TEMPLATE_ID ,
+			PLAN_NUMBER ,
+			PLAN_NAME ,
+			VERSION_NUMBER ,
+			PLAN_CATEGORY ,
+			SCOPE ,
+			EVENT_LEVEL ,
+			EVENT_TYPE ,
+			PLAN_THE ,
+			PLAN_STATUS ,
+			PLAN_CLASSIFICATION,
+			DOCUMENT_NUMBER,
+			PREPARATION_DEPARTMENT,
+			ISSUING_DEPARTMENT,
+			ISSUE_TIME,
+			EARLYWARNING_REPORT,
+			EMERGENCY_SUPPORT,
+			POST_DISPOSAL,
+
+			LOCATION,
+			HEADQUARTERS_OFFICE,
+
+			AUDIT_USER_ID ,
+			AUDIT_TIME ,
+			RELEASE_TIME ,
+			IS_DELETE ,
+			FLOW_MODEL_ID ,
+			MODEL_JSON ,
+			CREATED ,
+			CREATED_BY ,
+			LAST_UPDATED ,
+			LAST_UPDATED_BY 
+	    )
+  	</sql>
+
+	<sql id="DrpPlanBasicInformationInsertHisSQL">
+	    (
+			SID ,
+			USER_ID ,
+			TENANT_ID ,
+			ORG_ID ,
+			PLAN_TEMPLATE_ID ,
+			PLAN_NUMBER ,
+			PLAN_NAME ,
+			VERSION_NUMBER ,
+			PLAN_CATEGORY ,
+			SCOPE ,
+			EVENT_LEVEL ,
+			EVENT_TYPE ,
+			PLAN_THE ,
+			PLAN_STATUS ,
+			PLAN_CLASSIFICATION,
+			DOCUMENT_NUMBER,
+			PREPARATION_DEPARTMENT,
+			ISSUING_DEPARTMENT,
+			ISSUE_TIME,
+			EARLYWARNING_REPORT,
+			EMERGENCY_SUPPORT,
+			POST_DISPOSAL,
+
+			LOCATION,
+			HEADQUARTERS_OFFICE,
+
+			AUDIT_USER_ID ,
+			AUDIT_TIME ,
+			RELEASE_TIME ,
+			IS_DELETE ,
+			FLOW_MODEL_ID ,
+			MODEL_JSON ,
+			CREATED ,
+			CREATED_BY ,
+			LAST_UPDATED ,
+			LAST_UPDATED_BY
+	    )
+  	</sql>
+  
+    <!-- 新增DRP_PLAN_BASIC_INFORMATION 传入参数值 -->
+    <sql id="DrpPlanBasicInformationParamsSQL">
+	     (
+			#{sid,jdbcType=BIGINT} ,
+			#{userId,jdbcType=BIGINT} ,
+			#{tenantId,jdbcType=BIGINT} ,
+			#{orgId,jdbcType=BIGINT} ,
+			#{planTemplateId,jdbcType=BIGINT} ,
+			#{planNumber,jdbcType=VARCHAR} ,
+			#{planName,jdbcType=VARCHAR} ,
+			#{versionNumber,jdbcType=VARCHAR} ,
+			#{planCategory,jdbcType=INTEGER} ,
+			#{scope,jdbcType=VARCHAR} ,
+			#{eventLevel,jdbcType=INTEGER} ,
+			#{eventType,jdbcType=VARCHAR} ,
+			#{planThe,jdbcType=VARCHAR} ,
+			#{planStatus,jdbcType=INTEGER} ,
+			#{planClassification,jdbcType=INTEGER} ,
+			#{documentNumber,jdbcType=VARCHAR} ,
+			#{preparationDepartment,jdbcType=BIGINT} ,
+			#{issuingDepartment,jdbcType=BIGINT} ,
+			#{issueTime,jdbcType=TIMESTAMP} ,
+			#{earlywarningReport,jdbcType=VARCHAR} ,
+			#{emergencySupport,jdbcType=VARCHAR} ,
+			#{postDisposal,jdbcType=VARCHAR} ,
+
+			#{location,jdbcType=VARCHAR} ,
+			#{headquartersOffice,jdbcType=VARCHAR} ,
+
+			#{auditUserId,jdbcType=BIGINT} ,
+			#{auditTime,jdbcType=TIMESTAMP} ,
+			#{releaseTime,jdbcType=TIMESTAMP} ,
+			#{isDelete,jdbcType=INTEGER} ,
+			#{flowModelId,jdbcType=VARCHAR} ,
+			#{modelJson,jdbcType=VARCHAR} ,
+			#{created,jdbcType=TIMESTAMP} ,
+			#{createdBy,jdbcType=BIGINT} ,
+			#{lastUpdated,jdbcType=TIMESTAMP} ,
+			#{lastUpdatedBy,jdbcType=BIGINT} 
+	     )
+    </sql>
+
+	<sql id="DrpPlanBasicInformationParamsHisSQL">
+	     (
+			#{sid,jdbcType=BIGINT} ,
+			#{userId,jdbcType=BIGINT} ,
+			#{tenantId,jdbcType=BIGINT} ,
+			#{orgId,jdbcType=BIGINT} ,
+			#{planTemplateId,jdbcType=BIGINT} ,
+			#{planNumber,jdbcType=VARCHAR} ,
+			#{planName,jdbcType=VARCHAR} ,
+			#{versionNumber,jdbcType=VARCHAR} ,
+			#{planCategory,jdbcType=INTEGER} ,
+			#{scope,jdbcType=VARCHAR} ,
+			#{eventLevel,jdbcType=INTEGER} ,
+			#{eventType,jdbcType=VARCHAR} ,
+			#{planThe,jdbcType=VARCHAR} ,
+			#{planStatus,jdbcType=INTEGER} ,
+			#{planClassification,jdbcType=INTEGER} ,
+			#{documentNumber,jdbcType=VARCHAR} ,
+			#{preparationDepartment,jdbcType=BIGINT} ,
+			#{issuingDepartment,jdbcType=BIGINT} ,
+			#{issueTime,jdbcType=TIMESTAMP} ,
+			#{earlywarningReport,jdbcType=VARCHAR} ,
+			#{emergencySupport,jdbcType=VARCHAR} ,
+			#{postDisposal,jdbcType=VARCHAR} ,
+
+			#{location,jdbcType=VARCHAR} ,
+			#{headquartersOffice,jdbcType=VARCHAR} ,
+
+			#{auditUserId,jdbcType=BIGINT} ,
+			#{auditTime,jdbcType=TIMESTAMP} ,
+			#{releaseTime,jdbcType=TIMESTAMP} ,
+			#{isDelete,jdbcType=INTEGER} ,
+			#{flowModelId,jdbcType=VARCHAR} ,
+			#{modelJson,jdbcType=VARCHAR} ,
+			#{created,jdbcType=TIMESTAMP} ,
+			#{createdBy,jdbcType=BIGINT} ,
+			#{lastUpdated,jdbcType=TIMESTAMP} ,
+			#{lastUpdatedBy,jdbcType=BIGINT}
+	     )
+    </sql>
+  
+	<!-- 修改DRP_PLAN_BASIC_INFORMATION属性字段 -->
+	<sql id="DrpPlanBasicInformationUpdateSQL">
+			SID = #{sid,jdbcType=BIGINT} ,
+			USER_ID = #{userId,jdbcType=BIGINT} ,
+			TENANT_ID = #{tenantId,jdbcType=BIGINT} ,
+			ORG_ID = #{orgId,jdbcType=BIGINT} ,
+			PLAN_TEMPLATE_ID = #{planTemplateId,jdbcType=BIGINT} ,
+			PLAN_NUMBER = #{planNumber,jdbcType=VARCHAR} ,
+			PLAN_NAME = #{planName,jdbcType=VARCHAR} ,
+			VERSION_NUMBER = #{versionNumber,jdbcType=VARCHAR} ,
+			PLAN_CATEGORY = #{planCategory,jdbcType=INTEGER} ,
+			SCOPE = #{scope,jdbcType=VARCHAR} ,
+			EVENT_LEVEL = #{eventLevel,jdbcType=INTEGER} ,
+			EVENT_TYPE = #{eventType,jdbcType=VARCHAR} ,
+			PLAN_THE = #{planThe,jdbcType=VARCHAR} ,
+			PLAN_STATUS = #{planStatus,jdbcType=INTEGER} ,
+			PLAN_CLASSIFICATION = #{planClassification,jdbcType=INTEGER} ,
+			DOCUMENT_NUMBER = #{documentNumber,jdbcType=VARCHAR} ,
+			PREPARATION_DEPARTMENT = #{preparationDepartment,jdbcType=BIGINT} ,
+			ISSUING_DEPARTMENT = #{issuingDepartment,jdbcType=BIGINT} ,
+			ISSUE_TIME = #{issueTime,jdbcType=TIMESTAMP} ,
+			EARLYWARNING_REPORT = #{earlywarningReport,jdbcType=VARCHAR} ,
+			EMERGENCY_SUPPORT = #{emergencySupport,jdbcType=VARCHAR} ,
+			POST_DISPOSAL = #{postDisposal,jdbcType=VARCHAR} ,
+
+			LOCATION = #{location,jdbcType=VARCHAR} ,
+			HEADQUARTERS_OFFICE = #{headquartersOffice,jdbcType=VARCHAR} ,
+
+			AUDIT_USER_ID = #{auditUserId,jdbcType=BIGINT} ,
+			AUDIT_TIME = #{auditTime,jdbcType=TIMESTAMP} ,
+			RELEASE_TIME = #{releaseTime,jdbcType=TIMESTAMP} ,
+			IS_DELETE = #{isDelete,jdbcType=INTEGER} ,
+			FLOW_MODEL_ID = #{flowModelId,jdbcType=VARCHAR} ,
+			MODEL_JSON = #{modelJson,jdbcType=VARCHAR} ,
+			CREATED = #{created,jdbcType=TIMESTAMP} ,
+			CREATED_BY = #{createdBy,jdbcType=BIGINT} ,
+			LAST_UPDATED = #{lastUpdated,jdbcType=TIMESTAMP} ,
+			LAST_UPDATED_BY = #{lastUpdatedBy,jdbcType=BIGINT} 
+	</sql>
+	
+	<!-- DRP_PLAN_BASIC_INFORMATION 查询(包括条件按查询) -->
+	<sql id="DrpPlanBasicInformationWhereSQL">
+	 		<if test="body.sid != null">
+	 			and SID = #{body.sid}
+	 		</if>
+	 		<if test="body.userId != null">
+	 			and USER_ID = #{body.userId}
+	 		</if>
+	 		<if test="body.tenantId != null">
+	 			and TENANT_ID = #{body.tenantId}
+	 		</if>
+	 		<if test="body.orgId != null">
+	 			and ORG_ID = #{body.orgId}
+	 		</if>
+			<if test="body.planTemplateId != null">
+				and PLAN_TEMPLATE_ID = #{body.planTemplateId}
+			</if>
+	 		<if test="body.planNumber != null and body.planNumber != ''">
+	 			and PLAN_NUMBER = #{body.planNumber}
+	 		</if>
+	 		<if test="body.planName != null and body.planName != ''">
+	 			and PLAN_NAME LIKE concat('%', #{body.planName}, '%')
+	 		</if>
+	 		<if test="body.versionNumber != null and body.versionNumber != ''">
+	 			and VERSION_NUMBER = #{body.versionNumber}
+	 		</if>
+	 		<if test="body.planCategory != null">
+	 			and PLAN_CATEGORY = #{body.planCategory}
+	 		</if>
+	 		<if test="body.scope != null and body.scope != ''">
+	 			and SCOPE = #{body.scope}
+	 		</if>
+	 		<if test="body.eventLevel != null">
+	 			and EVENT_LEVEL = #{body.eventLevel}
+	 		</if>
+	 		<if test="body.eventType != null and body.eventType != ''">
+	 			and EVENT_TYPE LIKE concat('%', #{body.eventType}, '%')
+	 		</if>
+	 		<if test="body.planThe != null and body.planThe != ''">
+	 			and PLAN_THE = #{body.planThe}
+	 		</if>
+	 		<if test="body.planStatus != null">
+	 			and PLAN_STATUS = #{body.planStatus}
+	 		</if>
+			<if test="body.planClassification != null">
+				and PLAN_CLASSIFICATION = #{body.planClassification}
+			</if>
+			<if test="body.documentNumber != null">
+			and DOCUMENT_NUMBER LIKE concat('%', #{body.documentNumber}, '%')
+			</if>
+			<if test="body.preparationDepartment != null">
+				and PREPARATION_DEPARTMENT LIKE concat('%', #{body.preparationDepartment}, '%')
+			</if>
+			<if test="body.issuingDepartment != null">
+				and ISSUING_DEPARTMENT = #{body.issuingDepartment}
+			</if>
+			<if test="body.issueTime != null">
+				and ISSUE_TIME = #{body.issueTime}
+			</if>
+			<if test="body.earlywarningReport != null">
+				and EARLYWARNING_REPORT LIKE concat('%', #{body.earlywarningReport}, '%')
+			</if>
+			<if test="body.emergencySupport != null">
+				and EMERGENCY_SUPPORT LIKE concat('%', #{body.emergencySupport}, '%')
+			</if>
+			<if test="body.postDisposal != null">
+				and POST_DISPOSAL LIKE concat('%', #{body.postDisposal}, '%')
+			</if>
+
+			<if test="body.location != null">
+				and LOCATION LIKE concat('%', #{body.location}, '%')
+			</if>
+			<if test="body.headquartersOffice != null">
+				and HEADQUARTERS_OFFICE LIKE concat('%', #{body.headquartersOffice}, '%')
+			</if>
+
+
+			<if test="body.auditUserId != null">
+	 			and AUDIT_USER_ID = #{body.auditUserId}
+	 		</if>
+	 		<if test="body.auditTime != null">
+	 			and AUDIT_TIME = #{body.auditTime}
+	 		</if>
+	 		<if test="body.releaseTime != null">
+	 			and RELEASE_TIME = #{body.releaseTime}
+	 		</if>
+	 		<if test="body.isDelete != null">
+	 			and IS_DELETE = #{body.isDelete}
+	 		</if>
+			<if test="body.flowModelId != null">
+				and FLOW_MODEL_ID = #{body.flowModelId}
+			</if>
+			<if test="body.isFilterDraft !=null and body.isFilterDraft != true">
+				and PLAN_STATUS !=0
+			</if>
+	</sql>
+
+	<sql id="DrpPlanBasicInformationVersionWhereSQL">
+		<if test="body.sid != null">
+			and a.SID = #{body.sid}
+		</if>
+		<if test="body.userId != null">
+			and a.USER_ID = #{body.userId}
+		</if>
+		<if test="body.tenantId != null">
+			and a.TENANT_ID = #{body.tenantId}
+		</if>
+		<if test="body.orgId != null">
+			and a.ORG_ID = #{body.orgId}
+		</if>
+		<if test="body.planTemplateId != null">
+			and a.PLAN_TEMPLATE_ID = #{body.planTemplateId}
+		</if>
+		<if test="body.planNumber != null and body.planNumber != ''">
+			and a.PLAN_NUMBER = #{body.planNumber}
+		</if>
+		<if test="body.planName != null and body.planName != ''">
+			and a.PLAN_NAME LIKE concat('%', #{body.planName}, '%')
+		</if>
+		<if test="body.versionNumber != null and body.versionNumber != ''">
+			and a.VERSION_NUMBER = #{body.versionNumber}
+		</if>
+		<if test="body.planCategory != null">
+			and a.PLAN_CATEGORY = #{body.planCategory}
+		</if>
+		<if test="body.scope != null and body.scope != ''">
+			and a.SCOPE = #{body.scope}
+		</if>
+		<if test="body.eventLevel != null">
+			and a.EVENT_LEVEL = #{body.eventLevel}
+		</if>
+		<if test="body.eventType != null and body.eventType != ''">
+			and a.EVENT_TYPE LIKE concat('%', #{body.eventType}, '%')
+		</if>
+		<if test="body.planThe != null and body.planThe != ''">
+			and a.PLAN_THE = #{body.planThe}
+		</if>
+		<if test="body.planStatus != null">
+			and a.PLAN_STATUS = #{body.planStatus}
+		</if>
+		<if test="body.planClassification != null">
+			and a.PLAN_CLASSIFICATION = #{body.planClassification}
+		</if>
+		<if test="body.documentNumber != null and body.documentNumber != ''">
+		and a.DOCUMENT_NUMBER LIKE concat('%', #{body.documentNumber}, '%')
+		</if>
+		<if test="body.preparationDepartment != null ">
+			and a.PREPARATION_DEPARTMENT LIKE concat('%', #{body.preparationDepartment}, '%')
+		</if>
+		<if test="body.issuingDepartment != null">
+			and a.ISSUING_DEPARTMENT = #{body.issuingDepartment}
+		</if>
+		<if test="body.issueTime != null and body.issueTime != ''">
+			and a.ISSUE_TIME = #{body.issueTime}
+		</if>
+		<if test="body.earlywarningReport != null and body.earlywarningReport != ''">
+			and a.EARLYWARNING_REPORT concat('%', #{body.earlywarningReport}, '%')
+		</if>
+		<if test="body.emergencySupport != null and body.emergencySupport != ''">
+			and a.EMERGENCY_SUPPORT concat('%', #{body.emergencySupport}, '%')
+		</if>
+		<if test="body.postDisposal != null and body.postDisposal != ''">
+			and a.POST_DISPOSAL LIKE concat('%', #{body.postDisposal}, '%')
+		</if>
+
+		<if test="body.location != null and body.location != ''">
+			and a.LOCATION LIKE concat('%', #{body.location}, '%')
+		</if>
+		<if test="body.headquartersOffice != null and body.headquartersOffice != ''">
+			and a.HEADQUARTERS_OFFICE LIKE concat('%', #{body.headquartersOffice}, '%')
+		</if>
+
+
+		<if test="body.auditUserId != null">
+			and a.AUDIT_USER_ID = #{body.auditUserId}
+		</if>
+		<if test="body.auditTime != null">
+			and a.AUDIT_TIME = #{body.auditTime}
+		</if>
+		<if test="body.releaseTime != null">
+			and a.RELEASE_TIME = #{body.releaseTime}
+		</if>
+		<if test="body.isDelete != null">
+			and a.IS_DELETE = #{body.isDelete}
+		</if>
+		<if test="body.flowModelId != null">
+			and a.FLOW_MODEL_ID = #{body.flowModelId}
+		</if>
+	</sql>
+
+	<!-- DRP_PLAN_BASIC_INFORMATION 表关联项目信息表结果集属性声明 -->
+	<resultMap type="DrpPlanBasicInformation" id="DrpPlanBasicInformationResultMap">
+		<id column="SID" property="sid" />
+			<result property="userId" column="USER_ID"/>
+			<result property="tenantId" column="TENANT_ID"/>
+			<result property="orgId" column="ORG_ID"/>
+			<result property="planTemplateId" column="PLAN_TEMPLATE_ID"/>
+			<result property="planNumber" column="PLAN_NUMBER"/>
+			<result property="planName" column="PLAN_NAME"/>
+			<result property="versionNumber" column="VERSION_NUMBER"/>
+			<result property="planCategory" column="PLAN_CATEGORY"/>
+			<result property="scope" column="SCOPE"/>
+			<result property="eventLevel" column="EVENT_LEVEL"/>
+			<result property="eventType" column="EVENT_TYPE"/>
+			<result property="planThe" column="PLAN_THE"/>
+			<result property="planStatus" column="PLAN_STATUS"/>
+			<result property="planClassification" column="PLAN_CLASSIFICATION"/>
+			<result property="documentNumber" column="DOCUMENT_NUMBER"/>
+			<result property="preparationDepartment" column="PREPARATION_DEPARTMENT"/>
+			<result property="issuingDepartment" column="ISSUING_DEPARTMENT"/>
+			<result property="issueTime" column="ISSUE_TIME"/>
+			<result property="earlywarningReport" column="EARLYWARNING_REPORT"/>
+			<result property="emergencySupport" column="EMERGENCY_SUPPORT"/>
+			<result property="postDisposal" column="POST_DISPOSAL"/>
+
+			<result property="location" column="LOCATION"/>
+			<result property="headquartersOffice" column="HEADQUARTERS_OFFICE"/>
+
+			<result property="auditUserId" column="AUDIT_USER_ID"/>
+			<result property="auditTime" column="AUDIT_TIME"/>
+			<result property="releaseTime" column="RELEASE_TIME"/>
+			<result property="isDelete" column="IS_DELETE"/>
+			<result property="flowModelId" column="FLOW_MODEL_ID"/>
+			<result property="modelJson" column="MODEL_JSON"/>
+			<result property="created" column="CREATED"/>
+			<result property="createdBy" column="CREATED_BY"/>
+			<result property="lastUpdated" column="LAST_UPDATED"/>
+			<result property="lastUpdatedBy" column="LAST_UPDATED_BY"/>
+	</resultMap>
+
+
+
+	<!-- ======================DML语句配置====================== -->
+	<!-- DRP_PLAN_BASIC_INFORMATION 信息查询语句 -->
+	<select id="findDrpPlanBasicInformation" resultMap="DrpPlanBasicInformationResultMap">
+		SELECT 
+			<include refid="DrpPlanBasicInformationSQL" />
+		FROM  DRP_PLAN_BASIC_INFORMATION 
+		<where>
+			<include refid="DrpPlanBasicInformationWhereSQL" />
+		</where>
+		 order by  created desc
+		<!-- 通用查询排序 -->
+		<!--<if test ="sortName != null and sortName != '' and sortOrder!=null and sortOrder!=''">
+			order by  ${sortName} ${sortOrder}
+		</if>-->
+	</select>
+
+
+	<sql id="PlanCategoryListSQL">
+		PLAN_CATEGORY
+	</sql>
+
+
+	<select id="findPlanCategoryList" resultType="Map">
+		SELECT count(*) AS NUM,
+		<include refid="PlanCategoryListSQL" />
+		FROM  DRP_PLAN_BASIC_INFORMATION abc
+		GROUP BY PLAN_CATEGORY
+		ORDER BY PLAN_CATEGORY ASC
+	</select>
+
+
+    <!-- ======================DML语句配置====================== -->
+    <!-- DRP_PLAN_BASIC_INFORMATION 信息查询语句 -->
+    <select id="findDrpPlanBasicInformationHis" resultMap="DrpPlanBasicInformationResultMap">
+        SELECT
+        <include refid="DrpPlanBasicInformationSQL" />
+        FROM  DRP_PLAN_BASIC_INFORMATION_HIS
+        <where>
+            <include refid="DrpPlanBasicInformationWhereSQL" />
+        </where>
+        order by  created desc
+        <!-- 通用查询排序 -->
+        <!--<if test ="sortName != null and sortName != '' and sortOrder!=null and sortOrder!=''">
+            order by  ${sortName} ${sortOrder}
+        </if>-->
+    </select>
+	
+	<!-- DRP_PLAN_BASIC_INFORMATION 信息查询语句 -->
+	<select id="findByIdDrpPlanBasicInformation" resultMap="DrpPlanBasicInformationResultMap">
+		SELECT 
+			<include refid="DrpPlanBasicInformationSQL" />
+		FROM  DRP_PLAN_BASIC_INFORMATION
+		<where> 
+			SID = #{sid}
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</select>
+	<select id="findByIdsDrpPlanBasicInformation" resultMap="DrpPlanBasicInformationResultMap">
+		SELECT 
+			<include refid="DrpPlanBasicInformationSQL" />
+		FROM  DRP_PLAN_BASIC_INFORMATION
+		<where> 
+			SID IN
+			<foreach collection="ids" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</select>
+	
+	<!-- DRP_PLAN_BASIC_INFORMATION 数量查询SQL -->
+	<select id="countDrpPlanBasicInformation" resultType="Integer">
+		SELECT count(*) total FROM  DRP_PLAN_BASIC_INFORMATION
+		<where>
+			<include refid="DrpPlanBasicInformationWhereSQL" />
+		</where>
+	</select>
+
+    <!-- DRP_PLAN_BASIC_INFORMATION 数量查询SQL -->
+    <select id="countDrpPlanBasicInformationHis" resultType="Integer">
+        SELECT count(*) total FROM  DRP_PLAN_BASIC_INFORMATION_HIS
+        <where>
+            <include refid="DrpPlanBasicInformationWhereSQL" />
+        </where>
+    </select>
+  
+  	<!-- 新增DRP_PLAN_BASIC_INFORMATION 信息 -->
+	<insert id="addDrpPlanBasicInformation" parameterType="DrpPlanBasicInformation">
+		INSERT INTO DRP_PLAN_BASIC_INFORMATION <include refid="DrpPlanBasicInformationInsertSQL"/>
+		VALUES <include refid="DrpPlanBasicInformationParamsSQL"/>
+	</insert>
+
+	<!-- 新增DRP_PLAN_BASIC_INFORMATION 信息 -->
+	<insert id="addDrpPlanBasicInformationHis" parameterType="DrpPlanBasicInformation">
+		INSERT INTO DRP_PLAN_BASIC_INFORMATION_HIS <include refid="DrpPlanBasicInformationInsertHisSQL"/>
+		VALUES <include refid="DrpPlanBasicInformationParamsHisSQL"/>
+	</insert>
+	
+	<!-- 修改DRP_PLAN_BASIC_INFORMATION 信息 -->
+	<update id="updateDrpPlanBasicInformation" parameterType="DrpPlanBasicInformation">
+		UPDATE DRP_PLAN_BASIC_INFORMATION
+		SET    <include refid="DrpPlanBasicInformationUpdateSQL" />
+		WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除DRP_PLAN_BASIC_INFORMATION 信息 -->
+	<update id="deleteDrpPlanBasicInformation" parameterType="DrpPlanBasicInformation">
+		DELETE FROM DRP_PLAN_BASIC_INFORMATION WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除DRP_PLAN_BASIC_INFORMATION 信息 -->
+	<update id="deleteByIdDrpPlanBasicInformation" >
+		DELETE FROM DRP_PLAN_BASIC_INFORMATION
+		<where> 
+			SID IN
+			<foreach collection="ids" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</update>
+	
+	<!-- ======================DML方言配置====================== -->
+	<!-- xxx 信息查询语句,后缀必须(mysql|oracle...) -->
+	<!-- 逻辑删除或还原DRP_PLAN_BASIC_INFORMATION 信息 -->
+	<update id="logicDeleteOrRestoreByIdDrpPlanBasicInformation" >
+		UPDATE DRP_PLAN_BASIC_INFORMATION
+		SET IS_DELETE = #{isDelete,jdbcType=INTEGER},
+		LAST_UPDATED = #{lastUpdated,jdbcType=TIMESTAMP} ,
+		LAST_UPDATED_BY = #{lastUpdatedBy,jdbcType=BIGINT}
+		<where>
+			SID IN
+			<foreach collection="ids" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+			<if test="tenantId != null">
+				AND TENANT_ID = #{tenantId}
+			</if>
+			<if test="orgId != null">
+				AND ORG_ID = #{orgId}
+			</if>
+		</where>
+	</update>
+
+	<!-- 审核DRP_PLAN_BASIC_INFORMATION 信息 -->
+	<update id="auditByIdDrpPlanBasicInformation" >
+		UPDATE DRP_PLAN_BASIC_INFORMATION
+		SET PLAN_STATUS = #{planStatus,jdbcType=INTEGER},
+		AUDIT_USER_ID = #{auditUserId,jdbcType=BIGINT} ,
+		AUDIT_TIME = #{auditTime,jdbcType=TIMESTAMP} ,
+		LAST_UPDATED = #{lastUpdated,jdbcType=TIMESTAMP} ,
+		LAST_UPDATED_BY = #{lastUpdatedBy,jdbcType=BIGINT},
+		RELEASE_TIME = #{releaseTime,jdbcType=TIMESTAMP}
+		<where>
+			SID IN
+			<foreach collection="ids" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+			<if test="tenantId != null">
+				AND TENANT_ID = #{tenantId}
+			</if>
+			<if test="orgId != null">
+				AND ORG_ID = #{orgId}
+			</if>
+		</where>
+	</update>
+
+	<select id="findDrpPlanBasicInformationVersion" resultMap="DrpPlanBasicInformationResultMap">
+		SELECT
+		a.SID,
+		a.USER_ID,
+		a.TENANT_ID,
+		a.ORG_ID,
+		a.PLAN_TEMPLATE_ID,
+		a.PLAN_NUMBER,
+		a.PLAN_NAME,
+		a.PLAN_CATEGORY,
+		a.SCOPE,
+		a.EVENT_LEVEL,
+		a.EVENT_TYPE,
+		a.PLAN_THE,
+		a.PLAN_STATUS,
+		a.PLAN_CLASSIFICATION,
+		a.DOCUMENT_NUMBER,
+		a.PREPARATION_DEPARTMENT,
+		a.ISSUING_DEPARTMENT,
+		a.ISSUE_TIME,
+		a.EARLYWARNING_REPORT,
+		a.EMERGENCY_SUPPORT,
+		a.POST_DISPOSAL,
+		a.LOCATION,
+		a.HEADQUARTERS_OFFICE,
+		a.AUDIT_USER_ID,
+		a.AUDIT_TIME,
+		a.RELEASE_TIME,
+		a.IS_DELETE,
+		a.FLOW_MODEL_ID,
+		a.MODEL_JSON ,
+		a.CREATED,
+		a.CREATED_BY,
+		a.LAST_UPDATED,
+		a.LAST_UPDATED_BY,
+		a.VERSION_NUMBER
+		FROM
+		drp_plan_basic_information a
+		<where>
+			<include refid="DrpPlanBasicInformationVersionWhereSQL" />
+		</where>
+		<!-- 通用查询排序 -->
+	</select>
+
+	<select id="countDrpPlanBasicInformationVersion" resultType="Integer">
+		SELECT count(a.SID) total
+		FROM
+		drp_plan_basic_information a
+		<where>
+			<include refid="DrpPlanBasicInformationVersionWhereSQL" />
+		</where>
+	</select>
+
+	<!-- 修改事件信息，添加预案实例ID -->
+	<update id="updateOndutyEvent" parameterType="java.util.Map">
+		UPDATE onduty_event SET FLOW_INS_ID=#{flowInsId} WHERE  SID=#{ondutyEventId}
+	</update>
+
+
+
+
+	<select id="countMaterials" resultType="Integer">
+		SELECT count(*) total FROM  BASE_YJWZ
+		<where>
+			<if test="body.name != null and body.name != ''">
+				and mc LIKE concat('%', #{body.name}, '%')
+			</if>
+		</where>
+	</select>
+
+
+
+
+	<select id="countEquipment" resultType="Integer">
+		SELECT count(*) total FROM  BASE_YYZB
+		<where>
+			<if test="body.equipmentName != null and body.equipmentName != ''">
+				and mc LIKE concat('%', #{body.equipmentName}, '%')
+			</if>
+		</where>
+	</select>
+
+
+
+
+
+
+
+
+</mapper>

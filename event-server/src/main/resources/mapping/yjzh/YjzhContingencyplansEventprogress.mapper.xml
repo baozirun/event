@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"     
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.aifa.mins.yjzh.contingencyplans.model.YjzhContingencyplansEventprogress">
+
+	<!-- =====================Field字段配置===================== -->
+	<!-- YJZH_CONTINGENCYPLANS_EVENTPROGRESS 字段 -->
+	<sql id="YjzhContingencyplansEventprogressSQL">
+		SID ,
+		TENANT_ID ,
+		EVENT_ID ,
+		EVENT_NAME ,
+		EVENT_LEVEL ,
+		PLAN_ID ,
+		STATUS ,
+		START_TIME ,
+		END_TIME ,
+		CREATED_BY ,
+		CREATED ,
+		LAST_UPDATED_BY ,
+		LAST_UPDATED 
+	</sql>
+	
+	<!-- 新增YJZH_CONTINGENCYPLANS_EVENTPROGRESS 信息字段 -->
+  	<sql id="YjzhContingencyplansEventprogressInsertSQL">
+	    (
+			SID ,
+			TENANT_ID ,
+			EVENT_ID ,
+			EVENT_NAME ,
+			EVENT_LEVEL ,
+			PLAN_ID ,
+			STATUS ,
+			START_TIME ,
+			END_TIME ,
+			CREATED_BY ,
+			CREATED ,
+			LAST_UPDATED_BY ,
+			LAST_UPDATED 
+	    )
+  	</sql>
+  
+    <!-- 新增YJZH_CONTINGENCYPLANS_EVENTPROGRESS 传入参数值 -->
+    <sql id="YjzhContingencyplansEventprogressParamsSQL">
+	     (
+			#{sid,jdbcType=BIGINT} ,
+			#{tenantId,jdbcType=BIGINT} ,
+			#{eventId,jdbcType=VARCHAR} ,
+			#{eventName,jdbcType=VARCHAR} ,
+			#{eventLevel,jdbcType=VARCHAR} ,
+			#{planId,jdbcType=BIGINT} ,
+			#{status,jdbcType=VARCHAR} ,
+			#{startTime,jdbcType=TIMESTAMP} ,
+			#{endTime,jdbcType=TIMESTAMP} ,
+			#{createdBy,jdbcType=BIGINT} ,
+			#{created,jdbcType=TIMESTAMP} ,
+			#{lastUpdatedBy,jdbcType=BIGINT} ,
+			#{lastUpdated,jdbcType=TIMESTAMP} 
+	     )
+    </sql>
+  
+	<!-- 修改YJZH_CONTINGENCYPLANS_EVENTPROGRESS属性字段 -->
+	<sql id="YjzhContingencyplansEventprogressUpdateSQL">
+		<if test="fields.get('tenantId')!=null">
+			TENANT_ID = #{data.tenantId,jdbcType=BIGINT},
+		</if>
+		<if test="fields.get('eventId')!=null">
+			EVENT_ID = #{data.eventId,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('eventName')!=null">
+			EVENT_NAME = #{data.eventName,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('eventLevel')!=null">
+			EVENT_LEVEL = #{data.eventLevel,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('planId')!=null">
+			PLAN_ID = #{data.planId,jdbcType=BIGINT},
+		</if>
+		<if test="fields.get('status')!=null">
+			STATUS = #{data.status,jdbcType=VARCHAR},
+		</if>
+		<if test="fields.get('startTime')!=null">
+			START_TIME = #{data.startTime,jdbcType=TIMESTAMP},
+		</if>
+		<if test="fields.get('endTime')!=null">
+			END_TIME = #{data.endTime,jdbcType=TIMESTAMP},
+		</if>
+			LAST_UPDATED = #{data.lastUpdated,jdbcType=TIMESTAMP} ,
+			LAST_UPDATED_BY = #{data.lastUpdatedBy,jdbcType=BIGINT} 
+	</sql>
+	
+	<!-- YJZH_CONTINGENCYPLANS_EVENTPROGRESS 查询(包括条件按查询) -->
+	<sql id="YjzhContingencyplansEventprogressWhereSQL">
+	 		<if test="body.sid != null">
+	 			and SID = #{body.sid}
+	 		</if>
+	 		<if test="body.tenantId != null">
+	 			and TENANT_ID = #{body.tenantId}
+	 		</if>
+	 		<if test="body.eventId != null and body.eventId != ''">
+	 			and EVENT_ID = #{body.eventId}
+	 		</if>
+	 		<if test="body.eventName != null and body.eventName != ''">
+	 			and EVENT_NAME = #{body.eventName}
+	 		</if>
+	 		<if test="body.eventLevel != null and body.eventLevel != ''">
+	 			and EVENT_LEVEL = #{body.eventLevel}
+	 		</if>
+	 		<if test="body.planId != null">
+	 			and PLAN_ID = #{body.planId}
+	 		</if>
+	 		<if test="body.status != null and body.status != ''">
+	 			and STATUS = #{body.status}
+	 		</if>
+	 		<if test="body.startTime != null">
+	 			and START_TIME = #{body.startTime}
+	 		</if>
+	 		<if test="body.endTime != null">
+	 			and END_TIME = #{body.endTime}
+	 		</if>
+	</sql>
+
+	<!-- YJZH_CONTINGENCYPLANS_EVENTPROGRESS 表关联项目信息表结果集属性声明 -->
+	<resultMap type="YjzhContingencyplansEventprogress" id="YjzhContingencyplansEventprogressResultMap">
+		<id column="SID" property="sid" />
+			<result property="tenantId" column="TENANT_ID"/>
+			<result property="eventId" column="EVENT_ID"/>
+			<result property="eventName" column="EVENT_NAME"/>
+			<result property="eventLevel" column="EVENT_LEVEL"/>
+			<result property="planId" column="PLAN_ID"/>
+			<result property="status" column="STATUS"/>
+			<result property="startTime" column="START_TIME"/>
+			<result property="endTime" column="END_TIME"/>
+			<result property="createdBy" column="CREATED_BY"/>
+			<result property="created" column="CREATED"/>
+			<result property="lastUpdatedBy" column="LAST_UPDATED_BY"/>
+			<result property="lastUpdated" column="LAST_UPDATED"/>
+	</resultMap>
+
+	<!-- ======================DML语句配置====================== -->
+	<!-- YJZH_CONTINGENCYPLANS_EVENTPROGRESS 信息查询语句 -->
+	<select id="findYjzhContingencyplansEventprogress" resultMap="YjzhContingencyplansEventprogressResultMap">
+		SELECT 
+			<include refid="YjzhContingencyplansEventprogressSQL" />
+		FROM  YJZH_CONTINGENCYPLANS_EVENTPROGRESS 
+		<where>
+			<include refid="YjzhContingencyplansEventprogressWhereSQL" />
+		</where>
+		<!-- 通用查询排序 -->
+		ORDER BY ${sortName} ${sortOrder}
+	</select>
+
+
+	<select id="findYjzhContingencyplansEventprogressByEvent" resultMap="YjzhContingencyplansEventprogressResultMap">
+		SELECT
+		<include refid="YjzhContingencyplansEventprogressSQL" />
+		FROM  YJZH_CONTINGENCYPLANS_EVENTPROGRESS
+		<where>
+			<if test="eventId != null">
+				AND EVENT_ID = #{eventId}
+			</if>
+		</where>
+	</select>
+	
+	<!-- YJZH_CONTINGENCYPLANS_EVENTPROGRESS 信息查询语句 -->
+	<select id="findByIdYjzhContingencyplansEventprogress" resultMap="YjzhContingencyplansEventprogressResultMap">
+		SELECT 
+			<include refid="YjzhContingencyplansEventprogressSQL" />
+		FROM  YJZH_CONTINGENCYPLANS_EVENTPROGRESS
+		<where> 
+			SID = #{sid}
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</select>
+	<select id="findByIdsYjzhContingencyplansEventprogress" resultMap="YjzhContingencyplansEventprogressResultMap">
+		SELECT 
+			<include refid="YjzhContingencyplansEventprogressSQL" />
+		FROM  YJZH_CONTINGENCYPLANS_EVENTPROGRESS
+		<where> 
+			SID IN
+			<foreach collection="ids" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</select>
+	
+	<!-- YJZH_CONTINGENCYPLANS_EVENTPROGRESS 数量查询SQL -->
+	<select id="countYjzhContingencyplansEventprogress" resultType="Integer">
+		SELECT count(*) total FROM  YJZH_CONTINGENCYPLANS_EVENTPROGRESS
+		<where>
+			<include refid="YjzhContingencyplansEventprogressWhereSQL" />
+		</where>
+	</select>
+  
+  	<!-- 新增YJZH_CONTINGENCYPLANS_EVENTPROGRESS 信息 -->
+	<insert id="addYjzhContingencyplansEventprogress" parameterType="YjzhContingencyplansEventprogress">
+		INSERT INTO YJZH_CONTINGENCYPLANS_EVENTPROGRESS <include refid="YjzhContingencyplansEventprogressInsertSQL"/>
+		VALUES <include refid="YjzhContingencyplansEventprogressParamsSQL"/>
+	</insert>
+	
+	<!-- 修改YJZH_CONTINGENCYPLANS_EVENTPROGRESS 信息 -->
+	<update id="updateYjzhContingencyplansEventprogress" parameterType="YjzhContingencyplansEventprogress">
+		UPDATE YJZH_CONTINGENCYPLANS_EVENTPROGRESS
+		SET    <include refid="YjzhContingencyplansEventprogressUpdateSQL" />
+		<where>
+			SID=#{sid}
+			<if test="tenantId != null">
+				AND	TENANT_ID=#{tenantId}
+			</if>
+		</where>  
+	</update>
+
+	<!-- 修改YJZH_CONTINGENCYPLANS_EVENTPROGRESS 信息 -->
+	<update id="stopYjzhContingencyplansEventprogress" parameterType="YjzhContingencyplansEventprogress">
+		UPDATE YJZH_CONTINGENCYPLANS_EVENTPROGRESS
+		SET  STATUS='2'
+		<where>
+			EVENT_ID = #{eventId}
+		</where>
+	</update>
+
+
+	<update id="updateYjzhPlansEventprogressWithPlanId" parameterType="YjzhContingencyplansEventprogress">
+		UPDATE YJZH_CONTINGENCYPLANS_EVENTPROGRESS
+		SET
+		PLAN_ID=#{planId,jdbcType=BIGINT},
+		LAST_UPDATED = #{lastUpdated,jdbcType=TIMESTAMP} ,
+		LAST_UPDATED_BY = #{lastUpdatedBy,jdbcType=BIGINT}
+		<where>
+			EVENT_ID = #{eventId}
+		</where>
+	</update>
+	
+	<!-- 删除YJZH_CONTINGENCYPLANS_EVENTPROGRESS 信息 -->
+	<update id="deleteYjzhContingencyplansEventprogress" parameterType="YjzhContingencyplansEventprogress">
+		DELETE FROM YJZH_CONTINGENCYPLANS_EVENTPROGRESS WHERE  SID=#{sid}
+	</update>
+	
+	<!-- 删除YJZH_CONTINGENCYPLANS_EVENTPROGRESS 信息 -->
+	<update id="deleteByIdYjzhContingencyplansEventprogress" >
+		DELETE FROM YJZH_CONTINGENCYPLANS_EVENTPROGRESS
+		<where> 
+			SID IN
+			<foreach collection="ids" item="item" separator="," open="(" close=")">
+				#{item}
+			</foreach>
+			<if test="tenantId != null">
+	 			AND TENANT_ID = #{tenantId}
+	 		</if>
+	 		<if test="orgId != null">
+	 			AND ORG_ID = #{orgId}
+	 		</if>
+		</where>
+	</update>
+	
+	<!-- ======================DML方言配置====================== -->
+	<!-- xxx 信息查询语句,后缀必须(mysql|oracle...) -->
+</mapper>
