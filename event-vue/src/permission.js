@@ -10,8 +10,7 @@ import { ACCESS_TOKEN } from '@/store/mutation-types'
 import config from '@/config/defaultSettings'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
-const whiteList = ['/login', '/register', '/registerResult'] // no redirect whitelist
-
+const whiteList = ['/login', '/register', '/registerResult','/home/protalHome'] // no redirect whitelist
 /**
  * 跳转统一登录
  * @param {*} backurl 
@@ -30,10 +29,10 @@ const gotoLogin=(backurl)=>{
 router.beforeEach((to, from, next) => {
   NProgress.start() // start progress bar
 
-	if (!Vue.ss.get(ACCESS_TOKEN) && to.path === '/login') {
-    gotoLogin('/')
-    NProgress.done()
-  }
+	// if (!Vue.ss.get(ACCESS_TOKEN) && to.path === '/login') {
+  //   gotoLogin('/')
+  //   NProgress.done()
+  // }
 
   // token参数处理
   const token=to.query.token || from.query.token;
@@ -50,53 +49,53 @@ router.beforeEach((to, from, next) => {
   to.meta && (typeof to.meta.title !== 'undefined' && setDocumentTitle(`${to.meta.title} - ${domTitle}`))
 
   // 验证是否已登录
-  if (Vue.ss.get(ACCESS_TOKEN)) {
+  // if (Vue.ss.get(ACCESS_TOKEN)) {
 
     // 如果已认证，并且又请求登录页面，则返回首页
-    if (to.path === '/login') {
-      next({ path: '/' })
-      NProgress.done()
-      return;
-    } 
+    // if (to.path === '/login') {
+    //   next({ path: '/' })
+    //   NProgress.done()
+    //   return;
+    // } 
 
     // 判断前端是否获取到用户信息
-    if(!store.getters.userInfo){
-      store.dispatch('isAuthed').then(() => {
-        next({path:to.path});
-      }).catch(() => {
-        // 跳转到登录页面
-        gotoLogin(to.fullPath)
-        NProgress.done() // if current page is login will not trigger afterEach hook, so manually handle it
-      })
-      return;
-    }
+    // if(!store.getters.userInfo){
+    //   store.dispatch('isAuthed').then(() => {
+    //     next({path:to.path});
+    //   }).catch(() => {
+    //     // 跳转到登录页面
+    //     gotoLogin(to.fullPath)
+    //     NProgress.done() // if current page is login will not trigger afterEach hook, so manually handle it
+    //   })
+    //   return;
+    // }
     
     // 直接放行
     next();
-  } else {
+  // } else {
 
-    // 获取topath，对404路径特殊处理
-    let topath=to.path
-    if(to.path=='/404'){
-      if(to.redirectedFrom){
-        topath=to.redirectedFrom
-      }
-    }
+  //   // 获取topath，对404路径特殊处理
+  //   let topath=to.path
+  //   if(to.path=='/404'){
+  //     if(to.redirectedFrom){
+  //       topath=to.redirectedFrom
+  //     }
+  //   }
 
-    if (whiteList.includes(topath)) {
-      // 在免登录白名单，直接进入
-      next()
-    } else {
-      // 验证当前回话是否已认证
-      store.dispatch('isAuthed').then(() => {
-        next({path:topath})
-      }).catch(() => {
-        // 跳转到登录页面
-        gotoLogin(topath)
-        NProgress.done() // if current page is login will not trigger afterEach hook, so manually handle it
-      })
-    }
-  }
+  //   if (whiteList.includes(topath)) {
+  //     // 在免登录白名单，直接进入
+  //     next()
+  //   } else {
+  //     // 验证当前回话是否已认证
+  //     store.dispatch('isAuthed').then(() => {
+  //       next({path:topath})
+  //     }).catch(() => {
+  //       // 跳转到登录页面
+  //       gotoLogin(topath)
+  //       NProgress.done() // if current page is login will not trigger afterEach hook, so manually handle it
+  //     })
+  //   }
+  // }
 	
 })
 

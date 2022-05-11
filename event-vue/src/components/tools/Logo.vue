@@ -14,7 +14,7 @@ export default {
   props: {
     src:{
       type: String,
-      default: '/logo_icon.png',
+      // default: '/logo_icon.png',
       required: false
     },
     title: {
@@ -49,14 +49,14 @@ export default {
   }
 
   .logo-big{
-    background-image:url('/logo_idtv.png');
+    // background-image:url('/logo_idtv.png');
     background-size: 100% 100%;
     width: 200px;
     height: 55px;
   }
 
   .logo-small{
-    background-image:url('/logo_icon.png');
+    // background-image:url('/logo_icon.png');
     background-size: 100% 100%;
     width: 55px;
     height: 40px;

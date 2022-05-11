@@ -25,9 +25,18 @@ import './permission' // permission control
 import './utils/filter' // global filter
 
 
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
 
-//引入ZLayout组件的样式
-import 'ZLayout/lib/ZLayout.css'
+/**
+* 	main.js
+*/
+
+import navigationitem from "./components/submen.vue";
+Vue.component("navigationitem", navigationitem);
+
+
 
 // 引入 sessionstorage
 import VueSessionStorage from 'vue-sessionstorage'
